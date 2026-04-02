@@ -22,10 +22,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- GSAP -->
-  <script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- GSAP (defer to avoid render-blocking) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <!-- Socket.io: lazy-loaded when raffle section enters viewport -->
 
   <!-- Favicon & Touch Icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32.png">
@@ -1847,7 +1847,15 @@
       }
 
       function connectSocket() {
-        if (!raffleApiUrl || typeof io === 'undefined') return;
+        if (!raffleApiUrl) return;
+        // Lazy load socket.io if not yet loaded
+        if (typeof io === 'undefined') {
+          var s = document.createElement('script');
+          s.src = 'https://cdn.socket.io/4.8.1/socket.io.min.js';
+          s.onload = function() { connectSocket(); };
+          document.head.appendChild(s);
+          return;
+        }
         try {
           var socket = io(raffleApiUrl, { transports: ['websocket', 'polling'] });
           socket.on('new_entry', function(entry) {
