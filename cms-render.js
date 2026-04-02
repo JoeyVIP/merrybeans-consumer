@@ -266,6 +266,8 @@
   // ===== 通知 GSAP 重新綁定動畫 =====
   // cms-render.js 是 async（fetch），執行完後 GSAP 可能已綁定舊元素
   // 發送自訂事件讓後續腳本知道 CMS 渲染完成
+  // Expose CMS data for other scripts (e.g. raffle integration)
+  window.__CMS_DATA = cmsData;
   window.dispatchEvent(new CustomEvent('cms-rendered'));
 
 })();
