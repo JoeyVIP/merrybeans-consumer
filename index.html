@@ -16,6 +16,7 @@
   <meta name="twitter:title" content="芋見綠豆 MERRY BEANS">
   <meta name="twitter:description" content="堅持手工熬煮，嚴選在地食材。從一碗綠豆湯開始，傳遞屬於台灣的幸福滋味。">
   <meta name="twitter:image" content="images/hero/group-shot-1.jpg">
+  <link rel="canonical" href="https://merrybeans.co/">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1160,11 +1161,15 @@
     ]
   }
   </script>
+
+  /* Skip to content (a11y) */
+  .skip-link{position:absolute;top:-100%;left:16px;background:var(--accent,#C4956A);color:#fff;padding:8px 16px;border-radius:8px;z-index:9999;font-weight:600;text-decoration:none;font-size:14px;transition:top .2s}.skip-link:focus{top:8px}
 </head>
 <body>
+<a href="#main-content" class="skip-link">跳至主要內容</a>
 
   <!-- ===== NAVIGATION ===== -->
-  <nav class="nav" id="nav">
+  <nav class="nav" id="nav" aria-label="主要導覽">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
         <img src="images/logo/logo.jpg" alt="芋見綠豆">
@@ -1181,6 +1186,7 @@
       </button>
     </div>
   </nav>
+  <main id="main-content">
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
@@ -1591,7 +1597,8 @@
   </main>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="footer">
+  </main>
+  <footer class="footer" aria-label="頁尾">
     <div class="footer-inner">
       <div class="footer-brand">
         <img src="images/logo/logo.jpg" alt="芋見綠豆">
