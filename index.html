@@ -1658,32 +1658,58 @@
     // ===== GSAP ANIMATIONS =====
     gsap.registerPlugin(ScrollTrigger);
 
-    // Reveal animations
-    document.querySelectorAll('.reveal').forEach(el => {
-      gsap.from(el, {
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-          toggleActions: 'play none none none'
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
-      });
-    });
+    function initRevealAnimations(isRefresh) {
+      if (isRefresh) {
+        // CMS 重新渲染後：殺掉所有舊 ScrollTrigger
+        ScrollTrigger.getAll().forEach(st => st.kill());
+      }
 
-    // Product cards stagger
-    gsap.from('.product-card', {
-      scrollTrigger: {
-        trigger: '.products-grid',
-        start: 'top 80%'
-      },
-      y: 60,
-      opacity: 0,
-      stagger: 0.12,
-      duration: 0.7,
-      ease: 'power3.out'
+      document.querySelectorAll('.reveal').forEach(el => {
+        gsap.fromTo(el,
+          { y: 40, opacity: 0 },
+          {
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 85%',
+              toggleActions: 'play none none none'
+            },
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: 'power3.out'
+          }
+        );
+      });
+
+      // Product cards stagger
+      const productCards = document.querySelectorAll('.product-card');
+      const productsGrid = document.querySelector('.products-grid');
+      if (productCards.length && productsGrid) {
+        gsap.fromTo(productCards,
+          { y: 60, opacity: 0 },
+          {
+            scrollTrigger: {
+              trigger: productsGrid,
+              start: 'top 80%'
+            },
+            y: 0,
+            opacity: 1,
+            stagger: 0.12,
+            duration: 0.7,
+            ease: 'power3.out'
+          }
+        );
+      }
+
+      ScrollTrigger.refresh();
+    }
+
+    // 初始執行
+    initRevealAnimations(false);
+
+    // CMS 渲染完成後重新綁定動畫
+    window.addEventListener('cms-rendered', () => {
+      initRevealAnimations(true);
     });
 
     // Hero parallax
