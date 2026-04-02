@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>芋見綠豆 MERRY BEANS — 美好相遇 幸福傳遞</title>
+  <meta name="description" content="芋見綠豆 — 堅持手工熬煮，用最純粹的食材，傳遞每一口幸福。招牌芋泥綠豆湯、紅豆紫米鮮奶，來自屏東的手搖飲品牌。">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700;900&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo/logo.jpg">
+
+  <style>
+    :root {
+      --brand-green: #3C6932;
+      --brand-green-light: #91B473;
+      --brand-green-pale: #D4E4C8;
+      --brand-cream: #FFF8F0;
+      --brand-warm: #F5EDE0;
+      --brand-taro: #8B6F9C;
+      --brand-taro-light: #C4B0D4;
+      --brand-gold: #C8A96E;
+      --brand-brown: #6B4F3A;
+      --brand-dark: #1A1A1A;
+      --brand-text: #2D2D2D;
+      --brand-muted: #7A7A7A;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: var(--brand-text);
+      background: var(--brand-cream);
+      overflow-x: hidden;
+    }
+
+    .font-serif { font-family: 'Noto Serif TC', serif; }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .nav.scrolled {
+      background: rgba(255, 248, 240, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 0.75rem 2rem;
+      box-shadow: 0 1px 30px rgba(60, 105, 50, 0.08);
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--brand-green);
+    }
+
+    .nav-logo img {
+      height: 42px;
+      transition: height 0.4s;
+    }
+
+    .nav.scrolled .nav-logo img { height: 34px; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--brand-dark);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--brand-green);
+      transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .nav-links a:hover { color: var(--brand-green); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-mobile-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .nav-mobile-btn span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--brand-dark);
+      margin: 6px 0;
+      transition: all 0.3s;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 248, 240, 0.98);
+      backdrop-filter: blur(20px);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .mobile-menu.active { display: flex; }
+
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--brand-dark);
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #F5EDE0 0%, #EDE5D8 50%, #E8DFD0 100%);
+    }
+
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: radial-gradient(circle at 2px 2px, var(--brand-green) 1px, transparent 0);
+      background-size: 40px 40px;
+    }
+
+    .hero-content {
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 8rem 2rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-text { position: relative; z-index: 2; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.25rem;
+      background: rgba(60, 105, 50, 0.08);
+      border: 1px solid rgba(60, 105, 50, 0.15);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      color: var(--brand-green);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--brand-dark);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title .accent {
+      color: var(--brand-green);
+      position: relative;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: var(--brand-muted);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2.5rem;
+      background: var(--brand-green);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: 0 4px 20px rgba(60, 105, 50, 0.25);
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(60, 105, 50, 0.35);
+    }
+
+    .hero-cta svg {
+      transition: transform 0.3s;
+    }
+
+    .hero-cta:hover svg {
+      transform: translateX(4px);
+    }
+
+    .hero-image {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image-main {
+      width: 100%;
+      max-width: 560px;
+      border-radius: 24px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .hero-float-product {
+      position: absolute;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.15));
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .hero-float-1 {
+      width: 160px;
+      top: 5%;
+      right: -10%;
+      animation: float1 6s ease-in-out infinite;
+    }
+
+    .hero-float-2 {
+      width: 140px;
+      bottom: 10%;
+      left: -8%;
+      animation: float2 7s ease-in-out infinite;
+    }
+
+    @keyframes float1 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(3deg); }
+    }
+
+    @keyframes float2 {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(-3deg); }
+    }
+
+    /* ===== SECTION COMMON ===== */
+    .section {
+      padding: 7rem 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: var(--brand-green);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--brand-green);
+    }
+
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--brand-dark);
+      margin-bottom: 1.25rem;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--brand-muted);
+      max-width: 600px;
+      font-weight: 300;
+    }
+
+    /* ===== PHILOSOPHY STRIP ===== */
+    .philosophy {
+      background: var(--brand-green);
+      color: #fff;
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .philosophy::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.05;
+      background-image: radial-gradient(circle, #fff 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+
+    .philosophy-quote {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .philosophy-sub {
+      font-size: 0.95rem;
+      opacity: 0.7;
+      letter-spacing: 0.1em;
+      font-weight: 300;
+    }
+
+    /* ===== SIGNATURE PRODUCTS ===== */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(60, 105, 50, 0.12);
+    }
+
+    .product-card-image {
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center bottom, rgba(60, 105, 50, 0.06) 0%, transparent 70%);
+    }
+
+    .product-card-image img {
+      max-height: 260px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.1));
+    }
+
+    .product-card:hover .product-card-image img {
+      transform: scale(1.08) rotate(2deg);
+    }
+
+    .product-card-info {
+      padding: 1.5rem 2rem 2rem;
+      text-align: center;
+    }
+
+    .product-card-name {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .product-card-desc {
+      font-size: 0.85rem;
+      color: var(--brand-muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .product-card-price {
+      font-size: 0.9rem;
+      color: var(--brand-green);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .product-card-tag {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: var(--brand-green);
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* ===== FULL MENU ===== */
+    .menu-section {
+      background: #fff;
+      padding: 7rem 0;
+    }
+
+    .menu-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .menu-categories {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 3rem 0 2.5rem;
+      justify-content: center;
+    }
+
+    .menu-cat-btn {
+      padding: 0.6rem 1.5rem;
+      border: 1.5px solid var(--brand-green-pale);
+      background: transparent;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--brand-text);
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .menu-cat-btn:hover,
+    .menu-cat-btn.active {
+      background: var(--brand-green);
+      border-color: var(--brand-green);
+      color: #fff;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: #f0ede8;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .menu-item {
+      background: #fff;
+      padding: 1.25rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s;
+    }
+
+    .menu-item:hover {
+      background: var(--brand-cream);
+    }
+
+    .menu-item-name {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--brand-dark);
+    }
+
+    .menu-item-name .hot-tag {
+      font-size: 0.7rem;
+      background: #E85D3A;
+      color: #fff;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      font-weight: 600;
+    }
+
+    .menu-item-prices {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--brand-muted);
+    }
+
+    .menu-item-prices .price-label {
+      font-size: 0.7rem;
+      color: var(--brand-green-light);
+    }
+
+    .menu-item-prices .price-value {
+      font-weight: 600;
+      color: var(--brand-green);
+    }
+
+    .menu-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--brand-muted);
+    }
+
+    /* ===== BRAND STORY ===== */
+    .story-section {
+      background: var(--brand-warm);
+      padding: 7rem 0;
+      overflow: hidden;
+    }
+
+    .story-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .story-images {
+      position: relative;
+    }
+
+    .story-img-main {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+
+    .story-img-accent {
+      position: absolute;
+      width: 45%;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+      bottom: -2rem;
+      right: -2rem;
+      border: 4px solid #fff;
+    }
+
+    .story-content { position: relative; }
+
+    .story-content h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--brand-dark);
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+
+    .story-content p {
+      font-size: 1rem;
+      line-height: 2;
+      color: var(--brand-text);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .story-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .story-value {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .story-value-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(60, 105, 50, 0.08);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .story-value-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--brand-green);
+    }
+
+    .story-value-text h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .story-value-text p {
+      font-size: 0.8rem;
+      color: var(--brand-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* ===== STORE ===== */
+    .store-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    .store-image {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+
+    .store-image img {
+      width: 100%;
+      display: block;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .store-image:hover img {
+      transform: scale(1.03);
+    }
+
+    .store-info-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .store-info-card h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--brand-dark);
+      margin-bottom: 2rem;
+    }
+
+    .store-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid #f0ede8;
+    }
+
+    .store-detail:last-child { border-bottom: none; }
+
+    .store-detail-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(60, 105, 50, 0.06);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .store-detail-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--brand-green);
+    }
+
+    .store-detail-text h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--brand-dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .store-detail-text p {
+      font-size: 0.9rem;
+      color: var(--brand-muted);
+      line-height: 1.6;
+    }
+
+    /* ===== RAFFLE ===== */
+    .raffle-section {
+      background: linear-gradient(135deg, var(--brand-green) 0%, #2D5425 100%);
+      padding: 7rem 0;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .raffle-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: radial-gradient(circle, #fff 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+
+    .raffle-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .raffle-inner .section-label {
+      color: var(--brand-green-pale);
+    }
+
+    .raffle-inner .section-label::before {
+      background: var(--brand-green-pale);
+    }
+
+    .raffle-inner .section-title {
+      color: #fff;
+    }
+
+    .raffle-inner .section-desc {
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0 auto 3rem;
+    }
+
+    .raffle-how {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .raffle-step {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .raffle-step:hover {
+      background: rgba(255, 255, 255, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .raffle-step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--brand-green-light);
+      color: #fff;
+      font-family: 'Noto Serif TC', serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .raffle-step h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .raffle-step p {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      line-height: 1.6;
+    }
+
+    .raffle-list-container {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .raffle-list-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .raffle-list-header h4 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .raffle-live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      background: rgba(232, 93, 58, 0.2);
+      color: #FF8A6A;
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      font-weight: 600;
+    }
+
+    .raffle-live-dot {
+      width: 6px;
+      height: 6px;
+      background: #FF6B3A;
+      border-radius: 50%;
+      animation: pulse-dot 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .raffle-entry {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      transition: background 0.2s;
+    }
+
+    .raffle-entry:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .raffle-entry-user {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .raffle-entry-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--brand-taro) 0%, var(--brand-green-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .raffle-entry-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .raffle-entry-time {
+      font-size: 0.75rem;
+      opacity: 0.5;
+    }
+
+    .raffle-entry-status {
+      font-size: 0.75rem;
+      background: rgba(145, 180, 115, 0.2);
+      color: var(--brand-green-pale);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    /* ===== GALLERY STRIP ===== */
+    .gallery-strip {
+      display: flex;
+      overflow: hidden;
+      background: #fff;
+      padding: 1rem 0;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 1rem;
+      animation: scroll-gallery 30s linear infinite;
+    }
+
+    .gallery-track img {
+      height: 280px;
+      width: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    @keyframes scroll-gallery {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--brand-dark);
+      color: #fff;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .footer-brand img {
+      height: 48px;
+      margin-bottom: 1.25rem;
+      filter: brightness(10);
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.8;
+      max-width: 340px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.25rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-col a {
+      display: block;
+      color: rgba(255, 255, 255, 0.45);
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 0.35rem 0;
+      transition: color 0.3s;
+    }
+
+    .footer-col a:hover { color: var(--brand-green-light); }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .footer-social a:hover {
+      background: var(--brand-green);
+    }
+
+    .footer-social svg {
+      width: 16px;
+      height: 16px;
+      fill: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 7rem;
+      }
+      .hero-subtitle { margin: 0 auto 2.5rem; }
+      .hero-image { max-width: 500px; margin: 0 auto; }
+      .story-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .store-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-mobile-btn { display: block; }
+      .hero-float-1 { width: 100px; right: -5%; }
+      .hero-float-2 { width: 90px; left: -3%; }
+      .products-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .product-card-image { height: 220px; }
+      .raffle-how { grid-template-columns: 1fr; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+      .gallery-track img { height: 200px; }
+      .section { padding: 5rem 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .story-values { grid-template-columns: 1fr; }
+    }
+
+    /* ===== LOADING / REVEAL ===== */
+    .reveal { opacity: 0; transform: translateY(40px); }
+    .reveal.active { opacity: 1; transform: translateY(0); transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+
+    /* Smooth scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--brand-cream); }
+    ::-webkit-scrollbar-thumb { background: var(--brand-green-pale); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--brand-green-light); }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="images/logo/logo.jpg" alt="芋見綠豆">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#products">招牌推薦</a></li>
+        <li><a href="#menu">完整菜單</a></li>
+        <li><a href="#story">品牌故事</a></li>
+        <li><a href="#store">門市資訊</a></li>
+        <li><a href="#raffle">抽獎活動</a></li>
+      </ul>
+      <button class="nav-mobile-btn" id="mobileBtn" aria-label="開啟選單">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#products" onclick="closeMobile()">招牌推薦</a>
+    <a href="#menu" onclick="closeMobile()">完整菜單</a>
+    <a href="#story" onclick="closeMobile()">品牌故事</a>
+    <a href="#store" onclick="closeMobile()">門市資訊</a>
+    <a href="#raffle" onclick="closeMobile()">抽獎活動</a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          源自屏東・手工熬煮
+        </div>
+        <h1 class="hero-title">
+          每一口都是<br>
+          <span class="accent">美好的相遇</span>
+        </h1>
+        <p class="hero-subtitle">
+          堅持古法手工熬煮，嚴選在地食材。<br>
+          從一碗綠豆湯開始，傳遞屬於台灣的幸福滋味。
+        </p>
+        <a href="#menu" class="hero-cta">
+          探索菜單
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="hero-image">
+        <img src="images/hero/group-shot-1.jpg" alt="芋見綠豆招牌飲品" class="hero-image-main">
+        <img src="images/products/芋泥綠豆湯.png" alt="芋泥綠豆湯" class="hero-float-product hero-float-1">
+        <img src="images/products/紅豆紫米牛奶+小芋圓.png" alt="紅豆紫米牛奶" class="hero-float-product hero-float-2">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHILOSOPHY STRIP ===== -->
+  <section class="philosophy">
+    <p class="philosophy-quote reveal">美好相遇　幸福傳遞</p>
+    <p class="philosophy-sub reveal">A beautiful encounter, delivering happiness in every sip.</p>
+  </section>
+
+  <!-- ===== GALLERY STRIP ===== -->
+  <div class="gallery-strip">
+    <div class="gallery-track" id="galleryTrack">
+      <img src="images/products/mung-bean-soup-1.jpg" alt="綠豆湯" loading="lazy">
+      <img src="images/store/staff.jpg" alt="門市夥伴" loading="lazy">
+      <img src="images/products/red-bean-tea-1.jpg" alt="紅豆紫米奶茶" loading="lazy">
+      <img src="images/store/storefront.jpg" alt="門市外觀" loading="lazy">
+      <img src="images/products/red-bean-milk-taro-1.jpg" alt="紅豆紫米牛奶" loading="lazy">
+      <img src="images/hero/group-shot-2.jpg" alt="產品合照" loading="lazy">
+      <img src="images/products/red-bean-green-tea-1.jpg" alt="紅豆紫米奶綠" loading="lazy">
+      <!-- Duplicate for seamless loop -->
+      <img src="images/products/mung-bean-soup-1.jpg" alt="綠豆湯" loading="lazy">
+      <img src="images/store/staff.jpg" alt="門市夥伴" loading="lazy">
+      <img src="images/products/red-bean-tea-1.jpg" alt="紅豆紫米奶茶" loading="lazy">
+      <img src="images/store/storefront.jpg" alt="門市外觀" loading="lazy">
+      <img src="images/products/red-bean-milk-taro-1.jpg" alt="紅豆紫米牛奶" loading="lazy">
+      <img src="images/hero/group-shot-2.jpg" alt="產品合照" loading="lazy">
+      <img src="images/products/red-bean-green-tea-1.jpg" alt="紅豆紫米奶綠" loading="lazy">
+    </div>
+  </div>
+
+  <!-- ===== SIGNATURE PRODUCTS ===== -->
+  <section class="section" id="products">
+    <div class="section-label reveal">SIGNATURE</div>
+    <h2 class="section-title reveal">招牌推薦</h2>
+    <p class="section-desc reveal">每一杯都是職人的堅持，從食材挑選到手工熬煮，只為呈現最純粹的美味。</p>
+
+    <div class="products-grid">
+      <div class="product-card reveal">
+        <span class="product-card-tag">人氣 No.1</span>
+        <div class="product-card-image">
+          <img src="images/products/芋泥綠豆湯.png" alt="芋泥綠豆湯">
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">芋泥綠豆湯</h3>
+          <p class="product-card-desc">手工芋泥遇上慢火熬煮的綠豆，綿密與清爽的完美交融</p>
+          <span class="product-card-price">M $50 ／ L $60</span>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <span class="product-card-tag">經典必喝</span>
+        <div class="product-card-image">
+          <img src="images/products/綠豆湯.png" alt="綠豆湯">
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">綠豆湯</h3>
+          <p class="product-card-desc">古早味手工熬煮，每一口都是阿嬤的味道，清涼消暑首選</p>
+          <span class="product-card-price">M $35 ／ L $45</span>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <span class="product-card-tag">療癒系</span>
+        <div class="product-card-image">
+          <img src="images/products/紅豆紫米牛奶+小芋圓.png" alt="紅豆紫米鮮奶+小芋圓">
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">紅豆紫米鮮奶＋小芋圓</h3>
+          <p class="product-card-desc">紅豆與紫米的溫潤搭配鮮奶，再加上Q彈小芋圓，幸福滿分</p>
+          <span class="product-card-price">L $70</span>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-card-image">
+          <img src="images/products/紅豆紫米綠茶.png" alt="紅豆紫米奶綠">
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">紅豆紫米奶綠</h3>
+          <p class="product-card-desc">紅豆紫米搭配清香綠茶奶，層次豐富，回味無窮</p>
+          <span class="product-card-price">L $45</span>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-card-image">
+          <img src="images/products/綠豆湯牛奶.png" alt="綠豆湯牛奶">
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">綠豆沙牛奶</h3>
+          <p class="product-card-desc">綿密綠豆沙與香醇鮮奶的絕妙組合，濃郁卻不膩口</p>
+          <span class="product-card-price">M $40 ／ L $50</span>
+        </div>
+      </div>
+
+      <div class="product-card reveal">
+        <div class="product-card-image">
+          <img src="images/products/綠豆薏仁湯.png" alt="綠豆薏仁湯">
+        </div>
+        <div class="product-card-info">
+          <h3 class="product-card-name">綠豆薏仁湯</h3>
+          <p class="product-card-desc">綠豆與薏仁的養生組合，清熱解暑又養顏美容</p>
+          <span class="product-card-price">M $40 ／ L $50</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FULL MENU ===== -->
+  <section class="menu-section" id="menu">
+    <div class="menu-inner">
+      <div class="section-label reveal">FULL MENU</div>
+      <h2 class="section-title reveal">完整菜單</h2>
+      <p class="section-desc reveal">超過 50 款飲品與甜湯，總有一杯屬於你的幸福。</p>
+
+      <div class="menu-categories" id="menuCats">
+        <button class="menu-cat-btn active" data-cat="all">全部</button>
+        <button class="menu-cat-btn" data-cat="signature">招牌系列</button>
+        <button class="menu-cat-btn" data-cat="tea">芋見好茶</button>
+        <button class="menu-cat-btn" data-cat="competition">比賽茶</button>
+        <button class="menu-cat-btn" data-cat="milktea">特調厚奶茶</button>
+        <button class="menu-cat-btn" data-cat="honey">蜂蜜</button>
+        <button class="menu-cat-btn" data-cat="fresh">鮮榨特調</button>
+        <button class="menu-cat-btn" data-cat="yakult">養樂多</button>
+        <button class="menu-cat-btn" data-cat="wintermelon">冬瓜系列</button>
+        <button class="menu-cat-btn" data-cat="soup">甜湯系列</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid">
+        <!-- Signature -->
+        <div class="menu-item" data-cat="signature"><span class="menu-item-name">綠豆冰沙</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$40</span></span><span><span class="price-label">L </span><span class="price-value">$50</span></span></span></div>
+        <div class="menu-item" data-cat="signature"><span class="menu-item-name">綠豆沙牛奶</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$40</span></span><span><span class="price-label">L </span><span class="price-value">$50</span></span></span></div>
+        <div class="menu-item" data-cat="signature"><span class="menu-item-name">芋見綠豆 <span class="hot-tag">招牌</span></span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$50</span></span><span><span class="price-label">L </span><span class="price-value">$60</span></span></span></div>
+        <div class="menu-item" data-cat="signature"><span class="menu-item-name">芋香奶綠</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$55</span></span><span><span class="price-label">L </span><span class="price-value">$65</span></span></span></div>
+        <div class="menu-item" data-cat="signature"><span class="menu-item-name">芋頭牛奶</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$55</span></span><span><span class="price-label">L </span><span class="price-value">$65</span></span></span></div>
+        <div class="menu-item" data-cat="signature"><span class="menu-item-name">芋頭西米露牛奶</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$70</span></span><span><span class="price-label">L </span><span class="price-value">$80</span></span></span></div>
+        <div class="menu-item" data-cat="signature"><span class="menu-item-name">花生牛奶</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$55</span></span><span><span class="price-label">L </span><span class="price-value">$65</span></span></span></div>
+        <div class="menu-item" data-cat="signature"><span class="menu-item-name">花生可可冰沙</span><span class="menu-item-prices"><span><span class="price-label">L </span><span class="price-value">$80</span></span></span></div>
+        <div class="menu-item" data-cat="signature"><span class="menu-item-name">芋見花花</span><span class="menu-item-prices"><span><span class="price-label">L </span><span class="price-value">$80</span></span></span></div>
+        <div class="menu-item" data-cat="signature"><span class="menu-item-name">黑糖鮮奶珍珠</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$55</span></span><span><span class="price-label">L </span><span class="price-value">$65</span></span></span></div>
+        <div class="menu-item" data-cat="signature"><span class="menu-item-name">可可拿鐵</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$55</span></span><span><span class="price-label">L </span><span class="price-value">$65</span></span></span></div>
+
+        <!-- Tea -->
+        <div class="menu-item" data-cat="tea"><span class="menu-item-name">魚池紅茶</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$25</span></span><span><span class="price-label">L </span><span class="price-value">$30</span></span></span></div>
+        <div class="menu-item" data-cat="tea"><span class="menu-item-name">高山青茶</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$25</span></span><span><span class="price-label">L </span><span class="price-value">$30</span></span></span></div>
+        <div class="menu-item" data-cat="tea"><span class="menu-item-name">茉香綠茶</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$25</span></span><span><span class="price-label">L </span><span class="price-value">$30</span></span></span></div>
+
+        <!-- Competition Tea -->
+        <div class="menu-item" data-cat="competition"><span class="menu-item-name">雲瑯清心烏龍</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$35</span></span><span><span class="price-label">L </span><span class="price-value">$40</span></span></span></div>
+        <div class="menu-item" data-cat="competition"><span class="menu-item-name">雲瑯清心烏龍奶</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$45</span></span><span><span class="price-label">L </span><span class="price-value">$55</span></span></span></div>
+        <div class="menu-item" data-cat="competition"><span class="menu-item-name">松柏四季春</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$35</span></span><span><span class="price-label">L </span><span class="price-value">$40</span></span></span></div>
+
+        <!-- Milk Tea -->
+        <div class="menu-item" data-cat="milktea"><span class="menu-item-name">魚池厚奶紅</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$50</span></span><span><span class="price-label">L </span><span class="price-value">$60</span></span></span></div>
+        <div class="menu-item" data-cat="milktea"><span class="menu-item-name">茉香厚奶綠</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$50</span></span><span><span class="price-label">L </span><span class="price-value">$60</span></span></span></div>
+        <div class="menu-item" data-cat="milktea"><span class="menu-item-name">高山厚奶青</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$50</span></span><span><span class="price-label">L </span><span class="price-value">$60</span></span></span></div>
+
+        <!-- Honey -->
+        <div class="menu-item" data-cat="honey"><span class="menu-item-name">特調蜜茶</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$40</span></span><span><span class="price-label">L </span><span class="price-value">$50</span></span></span></div>
+        <div class="menu-item" data-cat="honey"><span class="menu-item-name">蜂蜜紅／綠／青</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$35</span></span><span><span class="price-label">L </span><span class="price-value">$45</span></span></span></div>
+        <div class="menu-item" data-cat="honey"><span class="menu-item-name">蜂蜜奶紅／奶綠／奶青</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$45</span></span><span><span class="price-label">L </span><span class="price-value">$55</span></span></span></div>
+        <div class="menu-item" data-cat="honey"><span class="menu-item-name">蜂蜜檸檬</span><span class="menu-item-prices"><span><span class="price-label">L </span><span class="price-value">$50</span></span></span></div>
+
+        <!-- Fresh -->
+        <div class="menu-item" data-cat="fresh"><span class="menu-item-name">青梅紅／綠／青</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$35</span></span><span><span class="price-label">L </span><span class="price-value">$45</span></span></span></div>
+        <div class="menu-item" data-cat="fresh"><span class="menu-item-name">蜂蜜檸紅／綠／青</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$35</span></span><span><span class="price-label">L </span><span class="price-value">$45</span></span></span></div>
+        <div class="menu-item" data-cat="fresh"><span class="menu-item-name">柳橙紅／綠／青</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$45</span></span><span><span class="price-label">L </span><span class="price-value">$55</span></span></span></div>
+
+        <!-- Yakult -->
+        <div class="menu-item" data-cat="yakult"><span class="menu-item-name">多多紅／綠／青</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$40</span></span></span></div>
+        <div class="menu-item" data-cat="yakult"><span class="menu-item-name">多多檸檬</span><span class="menu-item-prices"><span><span class="price-label">L </span><span class="price-value">$50</span></span></span></div>
+
+        <!-- Winter Melon -->
+        <div class="menu-item" data-cat="wintermelon"><span class="menu-item-name">冬瓜茶</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$25</span></span></span></div>
+        <div class="menu-item" data-cat="wintermelon"><span class="menu-item-name">冬瓜紅／綠／青</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$25</span></span><span><span class="price-label">L </span><span class="price-value">$35</span></span></span></div>
+        <div class="menu-item" data-cat="wintermelon"><span class="menu-item-name">冬瓜檸檬</span><span class="menu-item-prices"><span><span class="price-label">L </span><span class="price-value">$35</span></span></span></div>
+        <div class="menu-item" data-cat="wintermelon"><span class="menu-item-name">冬瓜鮮奶</span><span class="menu-item-prices"><span><span class="price-label">L </span><span class="price-value">$50</span></span></span></div>
+
+        <!-- Sweet Soup -->
+        <div class="menu-item" data-cat="soup"><span class="menu-item-name">綠豆湯 <span class="hot-tag">必點</span></span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$35</span></span><span><span class="price-label">L </span><span class="price-value">$45</span></span></span></div>
+        <div class="menu-item" data-cat="soup"><span class="menu-item-name">綠豆薏仁湯</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$40</span></span><span><span class="price-label">L </span><span class="price-value">$50</span></span></span></div>
+        <div class="menu-item" data-cat="soup"><span class="menu-item-name">紅豆紫米＋小芋圓</span><span class="menu-item-prices"><span><span class="price-label">M </span><span class="price-value">$45</span></span><span><span class="price-label">L </span><span class="price-value">$55</span></span></span></div>
+        <div class="menu-item" data-cat="soup"><span class="menu-item-name">紅豆紫米鮮奶＋小芋圓</span><span class="menu-item-prices"><span><span class="price-label">L </span><span class="price-value">$70</span></span></span></div>
+        <div class="menu-item" data-cat="soup"><span class="menu-item-name">紅豆紫米奶茶／奶綠／奶青</span><span class="menu-item-prices"><span><span class="price-label">L </span><span class="price-value">$45</span></span></span></div>
+        <div class="menu-item" data-cat="soup"><span class="menu-item-name">紅豆紫米鮮奶</span><span class="menu-item-prices"><span><span class="price-label">L </span><span class="price-value">$70</span></span></span></div>
+        <div class="menu-item" data-cat="soup"><span class="menu-item-name">芋見紅豆紫米鮮奶 <span class="hot-tag">頂級</span></span><span class="menu-item-prices"><span><span class="price-label">L </span><span class="price-value">$85</span></span></span></div>
+      </div>
+
+      <p class="menu-note">
+        加料：軟Q圓＋珍珠 ／ 地瓜小芋圓 ／ 芋泥 ／ 薏仁 ／ 粉角 ／ 西米露 ／ 珍珠 ／ 椰果 ／ 鮮奶（+$10~30）<br>
+        甜度：全糖 ／ 少糖 ／ 半糖 ／ 微糖 ／ 1分糖 ／ 無糖　｜　冰量：正常冰 ／ 少冰 ／ 微冰 ／ 去冰 ／ 溫 ／ 熱（不適用冰沙）
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== BRAND STORY ===== -->
+  <section class="story-section" id="story">
+    <div class="story-inner">
+      <div class="section-label reveal">OUR STORY</div>
+      <h2 class="section-title reveal">品牌故事</h2>
+
+      <div class="story-grid">
+        <div class="story-images reveal">
+          <img src="images/store/storefront.jpg" alt="芋見綠豆門市" class="story-img-main">
+          <img src="images/hero/group-shot-3.jpg" alt="招牌飲品" class="story-img-accent">
+        </div>
+
+        <div class="story-content">
+          <h3 class="reveal">從一碗綠豆湯開始的<br>幸福旅程</h3>
+          <p class="reveal">
+            芋見綠豆，誕生於屏東這片陽光充沛的土地。我們相信，最好的味道來自最簡單的堅持 — 手工熬煮、在地食材、真材實料。
+          </p>
+          <p class="reveal">
+            每天清晨，我們的職人便開始細心熬煮綠豆與紅豆，讓每一顆豆子都能釋放最完整的風味。搭配嚴選的台灣茶葉與新鮮牛奶，每一杯飲品都是我們對品質的承諾。
+          </p>
+          <p class="reveal">
+            「芋見」取自「遇見」的諧音，代表著每一位顧客與我們相遇的美好緣分。我們不只是賣飲料，更是在傳遞一份溫暖的幸福感。
+          </p>
+
+          <div class="story-values reveal">
+            <div class="story-value">
+              <div class="story-value-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="story-value-text">
+                <h4>真材實料</h4>
+                <p>堅持不添加人工色素與香精</p>
+              </div>
+            </div>
+            <div class="story-value">
+              <div class="story-value-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              </div>
+              <div class="story-value-text">
+                <h4>手工熬煮</h4>
+                <p>古法慢火，熬出食材真正的味道</p>
+              </div>
+            </div>
+            <div class="story-value">
+              <div class="story-value-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              </div>
+              <div class="story-value-text">
+                <h4>在地食材</h4>
+                <p>嚴選台灣在地優質農產品</p>
+              </div>
+            </div>
+            <div class="story-value">
+              <div class="story-value-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              </div>
+              <div class="story-value-text">
+                <h4>幸福傳遞</h4>
+                <p>用心做好每一杯，讓顧客感受溫暖</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STORE INFO ===== -->
+  <section class="section" id="store">
+    <div class="section-label reveal">VISIT US</div>
+    <h2 class="section-title reveal">門市資訊</h2>
+    <p class="section-desc reveal">歡迎蒞臨，讓我們為你現場手工調製一杯幸福。</p>
+
+    <div class="store-grid">
+      <div class="store-image reveal">
+        <img src="images/store/signage.jpg" alt="芋見綠豆招牌">
+      </div>
+
+      <div class="store-info-card reveal">
+        <h3>台南安平店</h3>
+
+        <div class="store-detail">
+          <div class="store-detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="store-detail-text">
+            <h4>地址</h4>
+            <p>台南市安平區（詳細地址即將公布）</p>
+          </div>
+        </div>
+
+        <div class="store-detail">
+          <div class="store-detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="store-detail-text">
+            <h4>營業時間</h4>
+            <p>週一至週日 10:00 - 21:00</p>
+          </div>
+        </div>
+
+        <div class="store-detail">
+          <div class="store-detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <div class="store-detail-text">
+            <h4>電話</h4>
+            <p>08-7220868</p>
+          </div>
+        </div>
+
+        <div class="store-detail">
+          <div class="store-detail-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="store-detail-text">
+            <h4>Instagram</h4>
+            <p>@merrybeans.tw</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding: 1.25rem; background: rgba(60, 105, 50, 0.04); border-radius: 12px; border: 1px solid rgba(60, 105, 50, 0.08);">
+          <p style="font-size: 0.85rem; color: var(--brand-green); font-weight: 500; margin-bottom: 0.25rem;">加盟洽詢</p>
+          <p style="font-size: 0.85rem; color: var(--brand-muted);">有興趣加入芋見綠豆？<a href="https://franchise.merrybeans.co" style="color: var(--brand-green); font-weight: 600; text-decoration: underline;">前往加盟資訊頁</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RAFFLE ===== -->
+  <section class="raffle-section" id="raffle">
+    <div class="raffle-inner">
+      <div class="section-label reveal">LUCKY DRAW</div>
+      <h2 class="section-title reveal">IG 限動抽獎</h2>
+      <p class="section-desc reveal">在 IG 限時動態標記 @merrybeans.tw，就有機會獲得免費飲品！每日開獎，即時公布得獎名單。</p>
+
+      <div class="raffle-how reveal">
+        <div class="raffle-step">
+          <div class="raffle-step-num">1</div>
+          <h4>拍限動</h4>
+          <p>拍下你的芋見綠豆飲品，發佈到 Instagram 限時動態</p>
+        </div>
+        <div class="raffle-step">
+          <div class="raffle-step-num">2</div>
+          <h4>標記我們</h4>
+          <p>在限動中標記（tag）@merrybeans.tw，系統自動記錄</p>
+        </div>
+        <div class="raffle-step">
+          <div class="raffle-step-num">3</div>
+          <h4>等待開獎</h4>
+          <p>每日抽出幸運兒，中獎者可獲得免費飲品一杯！</p>
+        </div>
+      </div>
+
+      <div class="raffle-list-container reveal">
+        <div class="raffle-list-header">
+          <h4>今日參與名單</h4>
+          <span class="raffle-live-badge"><span class="raffle-live-dot"></span>即時更新</span>
+        </div>
+
+        <div id="raffleList">
+          <div class="raffle-entry">
+            <div class="raffle-entry-user">
+              <div class="raffle-entry-avatar">B</div>
+              <div>
+                <div class="raffle-entry-name">bo***_tw</div>
+                <div class="raffle-entry-time">14:32</div>
+              </div>
+            </div>
+            <span class="raffle-entry-status">已參加</span>
+          </div>
+          <div class="raffle-entry">
+            <div class="raffle-entry-user">
+              <div class="raffle-entry-avatar">M</div>
+              <div>
+                <div class="raffle-entry-name">mi***ael</div>
+                <div class="raffle-entry-time">13:45</div>
+              </div>
+            </div>
+            <span class="raffle-entry-status">已參加</span>
+          </div>
+          <div class="raffle-entry">
+            <div class="raffle-entry-user">
+              <div class="raffle-entry-avatar">S</div>
+              <div>
+                <div class="raffle-entry-name">su***ie_food</div>
+                <div class="raffle-entry-time">12:18</div>
+              </div>
+            </div>
+            <span class="raffle-entry-status">已參加</span>
+          </div>
+          <div class="raffle-entry">
+            <div class="raffle-entry-user">
+              <div class="raffle-entry-avatar">L</div>
+              <div>
+                <div class="raffle-entry-name">li***_0315</div>
+                <div class="raffle-entry-time">11:55</div>
+              </div>
+            </div>
+            <span class="raffle-entry-status">已參加</span>
+          </div>
+          <div class="raffle-entry">
+            <div class="raffle-entry-user">
+              <div class="raffle-entry-avatar">T</div>
+              <div>
+                <div class="raffle-entry-name">ta***tea</div>
+                <div class="raffle-entry-time">10:22</div>
+              </div>
+            </div>
+            <span class="raffle-entry-status">已參加</span>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.5;">
+        抽獎活動依當期公告為準。名單每日自動清除，隔日重新計算。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="images/logo/logo.jpg" alt="芋見綠豆">
+        <p>堅持手工熬煮，嚴選在地食材。<br>從一碗綠豆湯開始，傳遞屬於台灣的幸福滋味。</p>
+      </div>
+      <div class="footer-col">
+        <h4>快速導航</h4>
+        <a href="#products">招牌推薦</a>
+        <a href="#menu">完整菜單</a>
+        <a href="#story">品牌故事</a>
+        <a href="#store">門市資訊</a>
+        <a href="#raffle">抽獎活動</a>
+      </div>
+      <div class="footer-col">
+        <h4>聯絡我們</h4>
+        <a href="tel:08-7220868">08-7220868</a>
+        <a href="https://instagram.com/merrybeans.tw" target="_blank">Instagram</a>
+        <a href="https://franchise.merrybeans.co">加盟資訊</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 芋見綠豆 MERRY BEANS. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com/merrybeans.tw" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== NAVIGATION =====
+    const nav = document.getElementById('nav');
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+
+    function closeMobile() {
+      mobileMenu.classList.remove('active');
+    }
+
+    // ===== MENU FILTER =====
+    const catBtns = document.querySelectorAll('.menu-cat-btn');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    catBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+
+        menuItems.forEach(item => {
+          if (cat === 'all' || item.dataset.cat === cat) {
+            item.style.display = 'flex';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // ===== GSAP ANIMATIONS =====
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Reveal animations
+    document.querySelectorAll('.reveal').forEach(el => {
+      gsap.from(el, {
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      });
+    });
+
+    // Product cards stagger
+    gsap.from('.product-card', {
+      scrollTrigger: {
+        trigger: '.products-grid',
+        start: 'top 80%'
+      },
+      y: 60,
+      opacity: 0,
+      stagger: 0.12,
+      duration: 0.7,
+      ease: 'power3.out'
+    });
+
+    // Hero parallax
+    gsap.to('.hero-float-1', {
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1
+      },
+      y: -80
+    });
+
+    gsap.to('.hero-float-2', {
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1
+      },
+      y: -50
+    });
+
+    // Hero entrance
+    gsap.from('.hero-badge', { y: 20, opacity: 0, duration: 0.6, delay: 0.2 });
+    gsap.from('.hero-title', { y: 30, opacity: 0, duration: 0.8, delay: 0.4 });
+    gsap.from('.hero-subtitle', { y: 30, opacity: 0, duration: 0.8, delay: 0.6 });
+    gsap.from('.hero-cta', { y: 20, opacity: 0, duration: 0.6, delay: 0.8 });
+    gsap.from('.hero-image-main', { scale: 0.9, opacity: 0, duration: 1, delay: 0.5, ease: 'power3.out' });
+    gsap.from('.hero-float-1', { x: 40, opacity: 0, duration: 0.8, delay: 0.8 });
+    gsap.from('.hero-float-2', { x: -40, opacity: 0, duration: 0.8, delay: 1 });
+
+    // Philosophy quote
+    gsap.from('.philosophy-quote', {
+      scrollTrigger: { trigger: '.philosophy', start: 'top 80%' },
+      letterSpacing: '0.5em',
+      opacity: 0,
+      duration: 1.2,
+      ease: 'power3.out'
+    });
+
+    // Store card slide in
+    gsap.from('.store-info-card', {
+      scrollTrigger: { trigger: '.store-grid', start: 'top 75%' },
+      x: 60,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power3.out'
+    });
+
+    // Raffle steps stagger
+    gsap.from('.raffle-step', {
+      scrollTrigger: { trigger: '.raffle-how', start: 'top 80%' },
+      y: 40,
+      opacity: 0,
+      stagger: 0.15,
+      duration: 0.6,
+      ease: 'power3.out'
+    });
+  </script>
+
+</body>
+</html>
