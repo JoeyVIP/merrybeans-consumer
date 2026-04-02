@@ -1,0 +1,201 @@
+{
+  "version": "1.1",
+  "sections": [
+    {
+      "key": "brand",
+      "title": "品牌資訊",
+      "icon": "Store",
+      "fields": [
+        { "key": "name", "label": "品牌名稱", "type": "text", "required": true, "default": "芋見綠豆" },
+        { "key": "name_en", "label": "英文名稱", "type": "text", "default": "MERRY BEANS" },
+        { "key": "slogan", "label": "品牌標語", "type": "text", "default": "美好相遇 幸福傳遞" },
+        { "key": "slogan_en", "label": "英文標語", "type": "text", "default": "A beautiful encounter, delivering happiness in every sip." },
+        { "key": "description", "label": "品牌簡介（SEO）", "type": "textarea", "default": "芋見綠豆 — 堅持手工熬煮，用最純粹的食材，傳遞每一口幸福。招牌芋泥綠豆湯、紅豆紫米鮮奶，來自屏東的手搖飲品牌。" },
+        { "key": "logo", "label": "Logo 圖片", "type": "image" },
+        { "key": "origin", "label": "起源地", "type": "text", "default": "屏東" }
+      ]
+    },
+    {
+      "key": "hero",
+      "title": "主視覺區塊",
+      "icon": "Image",
+      "fields": [
+        { "key": "badge", "label": "Badge 標籤", "type": "text", "default": "源自屏東・手工熬煮" },
+        { "key": "headline", "label": "主標題", "type": "text", "required": true, "default": "每一口都是" },
+        { "key": "headline_accent", "label": "主標題重點字", "type": "text", "required": true, "default": "美好的相遇" },
+        { "key": "subtitle", "label": "副標題", "type": "textarea", "default": "堅持古法手工熬煮，嚴選在地食材。從一碗綠豆湯開始，傳遞屬於台灣的幸福滋味。" },
+        { "key": "cta_text", "label": "CTA 按鈕文字", "type": "text", "default": "探索菜單" },
+        { "key": "cta_link", "label": "CTA 按鈕連結", "type": "text", "default": "#menu" },
+        { "key": "main_image", "label": "主圖", "type": "image" },
+        { "key": "float_product_1", "label": "浮動產品圖 1", "type": "image" },
+        { "key": "float_product_2", "label": "浮動產品圖 2", "type": "image" }
+      ]
+    },
+    {
+      "key": "signature",
+      "title": "招牌推薦",
+      "icon": "Star",
+      "fields": [
+        { "key": "section_label", "label": "區塊英文標籤", "type": "text", "default": "SIGNATURE" },
+        { "key": "section_title", "label": "區塊標題", "type": "text", "default": "招牌推薦" },
+        { "key": "section_desc", "label": "區塊描述", "type": "textarea", "default": "每一杯都是職人的堅持，從食材挑選到手工熬煮，只為呈現最純粹的美味。" },
+        {
+          "key": "items",
+          "label": "推薦商品",
+          "type": "repeater",
+          "fields": [
+            { "key": "name", "label": "品名", "type": "text", "required": true },
+            { "key": "description", "label": "描述", "type": "textarea" },
+            { "key": "price", "label": "價格文字", "type": "text", "placeholder": "M $50 ／ L $60" },
+            { "key": "tag", "label": "標籤（如「人氣 No.1」）", "type": "text" },
+            { "key": "image", "label": "商品圖片", "type": "image" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "menu",
+      "title": "完整菜單",
+      "icon": "UtensilsCrossed",
+      "fields": [
+        { "key": "section_label", "label": "區塊英文標籤", "type": "text", "default": "FULL MENU" },
+        { "key": "section_title", "label": "區塊標題", "type": "text", "default": "完整菜單" },
+        { "key": "section_desc", "label": "區塊描述", "type": "textarea", "default": "超過 50 款飲品與甜湯，總有一杯屬於你的幸福。" },
+        { "key": "menu_note", "label": "菜單備註", "type": "text", "default": "※ 實際品項與價格以門市現場為準" },
+        {
+          "key": "categories",
+          "label": "菜單分類",
+          "type": "repeater",
+          "fields": [
+            { "key": "name", "label": "分類名稱", "type": "text", "required": true },
+            { "key": "cat_id", "label": "分類 ID（英文）", "type": "text", "required": true, "placeholder": "signature" },
+            {
+              "key": "items",
+              "label": "品項列表",
+              "type": "repeater",
+              "fields": [
+                { "key": "name", "label": "品名", "type": "text", "required": true },
+                { "key": "price_m", "label": "中杯價格", "type": "text" },
+                { "key": "price_l", "label": "大杯價格", "type": "text" },
+                { "key": "is_hot", "label": "標記為熱門", "type": "boolean", "default": false },
+                { "key": "hot_tag", "label": "熱門標籤文字", "type": "text", "placeholder": "招牌" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "story",
+      "title": "品牌故事",
+      "icon": "BookOpen",
+      "fields": [
+        { "key": "section_label", "label": "區塊英文標籤", "type": "text", "default": "OUR STORY" },
+        { "key": "section_title", "label": "區塊標題", "type": "text", "default": "品牌故事" },
+        { "key": "headline", "label": "故事標題", "type": "text", "default": "從一碗綠豆湯開始的幸福旅程" },
+        { "key": "paragraphs", "label": "故事段落", "type": "repeater", "fields": [
+          { "key": "text", "label": "段落內容", "type": "textarea", "required": true }
+        ]},
+        { "key": "main_image", "label": "主圖", "type": "image" },
+        { "key": "accent_image", "label": "點綴圖", "type": "image" },
+        {
+          "key": "values",
+          "label": "品牌價值",
+          "type": "repeater",
+          "fields": [
+            { "key": "title", "label": "標題", "type": "text", "required": true },
+            { "key": "description", "label": "描述", "type": "text" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "store",
+      "title": "門市資訊",
+      "icon": "MapPin",
+      "fields": [
+        { "key": "section_label", "label": "區塊英文標籤", "type": "text", "default": "VISIT US" },
+        { "key": "section_title", "label": "區塊標題", "type": "text", "default": "門市資訊" },
+        { "key": "section_desc", "label": "區塊描述", "type": "textarea", "default": "歡迎蒞臨，讓我們為你現場手工調製一杯幸福。" },
+        { "key": "store_image", "label": "門市照片", "type": "image" },
+        {
+          "key": "locations",
+          "label": "門市列表",
+          "type": "repeater",
+          "fields": [
+            { "key": "name", "label": "門市名稱", "type": "text", "required": true },
+            { "key": "address", "label": "地址", "type": "text" },
+            { "key": "hours", "label": "營業時間", "type": "text" },
+            { "key": "phone", "label": "電話", "type": "phone" },
+            { "key": "instagram", "label": "Instagram 帳號", "type": "text" }
+          ]
+        },
+        { "key": "franchise_url", "label": "加盟資訊連結", "type": "url", "default": "https://franchise.merrybeans.co" },
+        { "key": "franchise_text", "label": "加盟說明文字", "type": "text", "default": "有興趣加入芋見綠豆？" }
+      ]
+    },
+    {
+      "key": "raffle",
+      "title": "IG 抽獎活動",
+      "icon": "Gift",
+      "fields": [
+        { "key": "enabled", "label": "啟用抽獎區塊", "type": "boolean", "default": true },
+        { "key": "section_label", "label": "區塊英文標籤", "type": "text", "default": "LUCKY DRAW" },
+        { "key": "section_title", "label": "區塊標題", "type": "text", "default": "IG 限動抽獎" },
+        { "key": "section_desc", "label": "區塊描述", "type": "textarea", "default": "在 IG 限時動態標記 @merrybeans.tw，就有機會獲得免費飲品！每日開獎，即時公布得獎名單。" },
+        { "key": "ig_handle", "label": "IG 帳號", "type": "text", "default": "@merrybeans.tw" },
+        { "key": "prize_text", "label": "獎品說明", "type": "text", "default": "免費飲品一杯" },
+        { "key": "api_endpoint", "label": "抽獎 API 端點", "type": "url", "help_text": "ig-raffle-service 的 API URL", "client_editable": false },
+        { "key": "disclaimer", "label": "免責聲明", "type": "text", "default": "抽獎活動依當期公告為準。名單每日自動清除，隔日重新計算。" },
+        {
+          "key": "steps",
+          "label": "參與步驟",
+          "type": "repeater",
+          "fields": [
+            { "key": "title", "label": "步驟標題", "type": "text", "required": true },
+            { "key": "description", "label": "步驟說明", "type": "textarea" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "gallery",
+      "title": "走馬燈圖片",
+      "icon": "Images",
+      "fields": [
+        {
+          "key": "images",
+          "label": "走馬燈圖片列表",
+          "type": "repeater",
+          "fields": [
+            { "key": "src", "label": "圖片", "type": "image", "required": true },
+            { "key": "alt", "label": "圖片說明", "type": "text" }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "footer",
+      "title": "頁尾",
+      "icon": "LayoutGrid",
+      "fields": [
+        { "key": "tagline", "label": "頁尾標語", "type": "textarea", "default": "堅持手工熬煮，嚴選在地食材。從一碗綠豆湯開始，傳遞屬於台灣的幸福滋味。" },
+        { "key": "phone", "label": "電話", "type": "phone", "default": "08-7220868" },
+        { "key": "instagram_url", "label": "Instagram 連結", "type": "url", "default": "https://instagram.com/merrybeans.tw" },
+        { "key": "copyright", "label": "版權聲明", "type": "text", "default": "© 2026 芋見綠豆 MERRY BEANS. All rights reserved." }
+      ]
+    },
+    {
+      "key": "seo",
+      "title": "SEO 設定",
+      "icon": "Search",
+      "client_visible": false,
+      "fields": [
+        { "key": "title", "label": "網頁標題", "type": "text", "default": "芋見綠豆 MERRY BEANS — 美好相遇 幸福傳遞" },
+        { "key": "description", "label": "Meta Description", "type": "textarea" },
+        { "key": "og_image", "label": "OG 分享圖片", "type": "image" },
+        { "key": "favicon", "label": "Favicon", "type": "image" }
+      ]
+    }
+  ]
+}
