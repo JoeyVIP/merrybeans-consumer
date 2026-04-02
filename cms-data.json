@@ -78,95 +78,302 @@
         "name": "招牌系列",
         "cat_id": "signature",
         "items": [
-          { "name": "綠豆冰沙", "price_m": "$40", "price_l": "$50", "is_hot": false },
-          { "name": "綠豆沙牛奶", "price_m": "$40", "price_l": "$50", "is_hot": false },
-          { "name": "芋見綠豆", "price_m": "$50", "price_l": "$60", "is_hot": true, "hot_tag": "招牌" },
-          { "name": "芋香奶綠", "price_m": "$55", "price_l": "$65", "is_hot": false },
-          { "name": "芋頭牛奶", "price_m": "$55", "price_l": "$65", "is_hot": false },
-          { "name": "芋頭西米露牛奶", "price_m": "$70", "price_l": "$80", "is_hot": false },
-          { "name": "花生牛奶", "price_m": "$55", "price_l": "$65", "is_hot": false },
-          { "name": "花生可可冰沙", "price_m": "", "price_l": "$80", "is_hot": false },
-          { "name": "芋見花花", "price_m": "", "price_l": "$80", "is_hot": false },
-          { "name": "黑糖鮮奶珍珠", "price_m": "$55", "price_l": "$65", "is_hot": false },
-          { "name": "可可拿鐵", "price_m": "$55", "price_l": "$65", "is_hot": false }
+          {
+            "name": "綠豆冰沙",
+            "price_m": "$40",
+            "price_l": "$50",
+            "is_hot": false
+          },
+          {
+            "name": "綠豆沙牛奶",
+            "price_m": "$40",
+            "price_l": "$50",
+            "is_hot": false
+          },
+          {
+            "name": "芋見綠豆",
+            "price_m": "$50",
+            "price_l": "$60",
+            "is_hot": true,
+            "hot_tag": "招牌"
+          },
+          {
+            "name": "芋香奶綠",
+            "price_m": "$55",
+            "price_l": "$65",
+            "is_hot": false
+          },
+          {
+            "name": "芋頭牛奶",
+            "price_m": "$55",
+            "price_l": "$65",
+            "is_hot": false
+          },
+          {
+            "name": "芋頭西米露牛奶",
+            "price_m": "$70",
+            "price_l": "$80",
+            "is_hot": false
+          },
+          {
+            "name": "花生牛奶",
+            "price_m": "$55",
+            "price_l": "$65",
+            "is_hot": false
+          },
+          {
+            "name": "花生可可冰沙",
+            "price_m": "",
+            "price_l": "$80",
+            "is_hot": false
+          },
+          {
+            "name": "芋見花花",
+            "price_m": "",
+            "price_l": "$80",
+            "is_hot": false
+          },
+          {
+            "name": "黑糖鮮奶珍珠",
+            "price_m": "$55",
+            "price_l": "$65",
+            "is_hot": false
+          },
+          {
+            "name": "可可拿鐵",
+            "price_m": "$55",
+            "price_l": "$65",
+            "is_hot": false
+          }
         ]
       },
       {
         "name": "芋見好茶",
         "cat_id": "tea",
         "items": [
-          { "name": "魚池紅茶", "price_m": "$25", "price_l": "$30", "is_hot": false },
-          { "name": "高山青茶", "price_m": "$25", "price_l": "$30", "is_hot": false },
-          { "name": "茉香綠茶", "price_m": "$25", "price_l": "$30", "is_hot": false }
+          {
+            "name": "魚池紅茶",
+            "price_m": "$25",
+            "price_l": "$30",
+            "is_hot": false
+          },
+          {
+            "name": "高山青茶",
+            "price_m": "$25",
+            "price_l": "$30",
+            "is_hot": false
+          },
+          {
+            "name": "茉香綠茶",
+            "price_m": "$25",
+            "price_l": "$30",
+            "is_hot": false
+          }
         ]
       },
       {
         "name": "比賽茶",
         "cat_id": "competition",
         "items": [
-          { "name": "雲瑯清心烏龍", "price_m": "$35", "price_l": "$40", "is_hot": false },
-          { "name": "雲瑯清心烏龍奶", "price_m": "$45", "price_l": "$55", "is_hot": false },
-          { "name": "松柏四季春", "price_m": "$35", "price_l": "$40", "is_hot": false }
+          {
+            "name": "雲瑯清心烏龍",
+            "price_m": "$35",
+            "price_l": "$40",
+            "is_hot": false
+          },
+          {
+            "name": "雲瑯清心烏龍奶",
+            "price_m": "$45",
+            "price_l": "$55",
+            "is_hot": false
+          },
+          {
+            "name": "松柏四季春",
+            "price_m": "$35",
+            "price_l": "$40",
+            "is_hot": false
+          }
         ]
       },
       {
         "name": "特調厚奶茶",
         "cat_id": "milktea",
         "items": [
-          { "name": "魚池厚奶紅", "price_m": "$50", "price_l": "$60", "is_hot": false },
-          { "name": "茉香厚奶綠", "price_m": "$50", "price_l": "$60", "is_hot": false },
-          { "name": "高山厚奶青", "price_m": "$50", "price_l": "$60", "is_hot": false }
+          {
+            "name": "魚池厚奶紅",
+            "price_m": "$50",
+            "price_l": "$60",
+            "is_hot": false
+          },
+          {
+            "name": "茉香厚奶綠",
+            "price_m": "$50",
+            "price_l": "$60",
+            "is_hot": false
+          },
+          {
+            "name": "高山厚奶青",
+            "price_m": "$50",
+            "price_l": "$60",
+            "is_hot": false
+          }
         ]
       },
       {
         "name": "蜂蜜",
         "cat_id": "honey",
         "items": [
-          { "name": "特調蜜茶", "price_m": "$40", "price_l": "$50", "is_hot": false },
-          { "name": "蜂蜜紅／綠／青", "price_m": "$35", "price_l": "$45", "is_hot": false },
-          { "name": "蜂蜜奶紅／奶綠／奶青", "price_m": "$45", "price_l": "$55", "is_hot": false },
-          { "name": "蜂蜜檸檬", "price_m": "", "price_l": "$50", "is_hot": false }
+          {
+            "name": "特調蜜茶",
+            "price_m": "$40",
+            "price_l": "$50",
+            "is_hot": false
+          },
+          {
+            "name": "蜂蜜紅／綠／青",
+            "price_m": "$35",
+            "price_l": "$45",
+            "is_hot": false
+          },
+          {
+            "name": "蜂蜜奶紅／奶綠／奶青",
+            "price_m": "$45",
+            "price_l": "$55",
+            "is_hot": false
+          },
+          {
+            "name": "蜂蜜檸檬",
+            "price_m": "",
+            "price_l": "$50",
+            "is_hot": false
+          }
         ]
       },
       {
         "name": "鮮榨特調",
         "cat_id": "fresh",
         "items": [
-          { "name": "青梅紅／綠／青", "price_m": "$35", "price_l": "$45", "is_hot": false },
-          { "name": "蜂蜜檸紅／綠／青", "price_m": "$35", "price_l": "$45", "is_hot": false },
-          { "name": "柳橙紅／綠／青", "price_m": "$45", "price_l": "$55", "is_hot": false }
+          {
+            "name": "青梅紅／綠／青",
+            "price_m": "$35",
+            "price_l": "$45",
+            "is_hot": false
+          },
+          {
+            "name": "蜂蜜檸紅／綠／青",
+            "price_m": "$35",
+            "price_l": "$45",
+            "is_hot": false
+          },
+          {
+            "name": "柳橙紅／綠／青",
+            "price_m": "$45",
+            "price_l": "$55",
+            "is_hot": false
+          }
         ]
       },
       {
         "name": "養樂多",
         "cat_id": "yakult",
         "items": [
-          { "name": "多多紅／綠／青", "price_m": "$40", "price_l": "", "is_hot": false },
-          { "name": "多多檸檬", "price_m": "", "price_l": "$50", "is_hot": false }
+          {
+            "name": "多多紅／綠／青",
+            "price_m": "$40",
+            "price_l": "",
+            "is_hot": false
+          },
+          {
+            "name": "多多檸檬",
+            "price_m": "",
+            "price_l": "$50",
+            "is_hot": false
+          }
         ]
       },
       {
         "name": "冬瓜系列",
         "cat_id": "wintermelon",
         "items": [
-          { "name": "冬瓜茶", "price_m": "$25", "price_l": "$30", "is_hot": false },
-          { "name": "冬瓜牛奶", "price_m": "$40", "price_l": "$50", "is_hot": false },
-          { "name": "冬瓜檸檬", "price_m": "", "price_l": "$45", "is_hot": false }
+          {
+            "name": "冬瓜茶",
+            "price_m": "$25",
+            "price_l": "$30",
+            "is_hot": false
+          },
+          {
+            "name": "冬瓜牛奶",
+            "price_m": "$40",
+            "price_l": "$50",
+            "is_hot": false
+          },
+          {
+            "name": "冬瓜檸檬",
+            "price_m": "",
+            "price_l": "$45",
+            "is_hot": false
+          }
         ]
       },
       {
         "name": "甜湯系列",
         "cat_id": "soup",
         "items": [
-          { "name": "綠豆湯", "price_m": "$35", "price_l": "$45", "is_hot": false },
-          { "name": "芋泥綠豆湯", "price_m": "$50", "price_l": "$60", "is_hot": true, "hot_tag": "人氣" },
-          { "name": "綠豆薏仁湯", "price_m": "$40", "price_l": "$50", "is_hot": false },
-          { "name": "紅豆湯", "price_m": "$35", "price_l": "$45", "is_hot": false },
-          { "name": "紅豆紫米湯", "price_m": "$40", "price_l": "$50", "is_hot": false },
-          { "name": "紅豆紫米牛奶", "price_m": "$55", "price_l": "$65", "is_hot": false },
-          { "name": "紅豆紫米牛奶+小芋圓", "price_m": "", "price_l": "$70", "is_hot": false },
-          { "name": "紅豆紫米奶茶", "price_m": "", "price_l": "$45", "is_hot": false },
-          { "name": "紅豆紫米奶綠", "price_m": "", "price_l": "$45", "is_hot": false }
+          {
+            "name": "綠豆湯",
+            "price_m": "$35",
+            "price_l": "$45",
+            "is_hot": false
+          },
+          {
+            "name": "芋泥綠豆湯",
+            "price_m": "$50",
+            "price_l": "$60",
+            "is_hot": true,
+            "hot_tag": "人氣"
+          },
+          {
+            "name": "綠豆薏仁湯",
+            "price_m": "$40",
+            "price_l": "$50",
+            "is_hot": false
+          },
+          {
+            "name": "紅豆湯",
+            "price_m": "$35",
+            "price_l": "$45",
+            "is_hot": false
+          },
+          {
+            "name": "紅豆紫米湯",
+            "price_m": "$40",
+            "price_l": "$50",
+            "is_hot": false
+          },
+          {
+            "name": "紅豆紫米牛奶",
+            "price_m": "$55",
+            "price_l": "$65",
+            "is_hot": false
+          },
+          {
+            "name": "紅豆紫米牛奶+小芋圓",
+            "price_m": "",
+            "price_l": "$70",
+            "is_hot": false
+          },
+          {
+            "name": "紅豆紫米奶茶",
+            "price_m": "",
+            "price_l": "$45",
+            "is_hot": false
+          },
+          {
+            "name": "紅豆紫米奶綠",
+            "price_m": "",
+            "price_l": "$45",
+            "is_hot": false
+          }
         ]
       }
     ]
@@ -176,17 +383,35 @@
     "section_title": "品牌故事",
     "headline": "從一碗綠豆湯開始的幸福旅程",
     "paragraphs": [
-      { "text": "芋見綠豆，誕生於屏東這片陽光充沛的土地。我們相信，最好的味道來自最簡單的堅持 — 手工熬煮、在地食材、真材實料。" },
-      { "text": "每天清晨，我們的職人便開始細心熬煮綠豆與紅豆，讓每一顆豆子都能釋放最完整的風味。搭配嚴選的台灣茶葉與新鮮牛奶，每一杯飲品都是我們對品質的承諾。" },
-      { "text": "「芋見」取自「遇見」的諧音，代表著每一位顧客與我們相遇的美好緣分。我們不只是賣飲料，更是在傳遞一份溫暖的幸福感。" }
+      {
+        "text": "芋見綠豆，誕生於屏東這片陽光充沛的土地。我們相信，最好的味道來自最簡單的堅持 — 手工熬煮、在地食材、真材實料。"
+      },
+      {
+        "text": "每天清晨，我們的職人便開始細心熬煮綠豆與紅豆，讓每一顆豆子都能釋放最完整的風味。搭配嚴選的台灣茶葉與新鮮牛奶，每一杯飲品都是我們對品質的承諾。"
+      },
+      {
+        "text": "「芋見」取自「遇見」的諧音，代表著每一位顧客與我們相遇的美好緣分。我們不只是賣飲料，更是在傳遞一份溫暖的幸福感。"
+      }
     ],
     "main_image": "images/store/storefront.jpg",
     "accent_image": "images/hero/group-shot-3.jpg",
     "values": [
-      { "title": "真材實料", "description": "堅持不添加人工色素與香精" },
-      { "title": "手工熬煮", "description": "古法慢火，熬出食材真正的味道" },
-      { "title": "在地食材", "description": "嚴選台灣在地優質農產品" },
-      { "title": "幸福傳遞", "description": "用心做好每一杯，讓顧客感受溫暖" }
+      {
+        "title": "真材實料",
+        "description": "堅持不添加人工色素與香精"
+      },
+      {
+        "title": "手工熬煮",
+        "description": "古法慢火，熬出食材真正的味道"
+      },
+      {
+        "title": "在地食材",
+        "description": "嚴選台灣在地優質農產品"
+      },
+      {
+        "title": "幸福傳遞",
+        "description": "用心做好每一杯，讓顧客感受溫暖"
+      }
     ]
   },
   "store": {
@@ -216,20 +441,50 @@
     "api_endpoint": "",
     "disclaimer": "抽獎活動依當期公告為準。名單每日自動清除，隔日重新計算。",
     "steps": [
-      { "title": "拍限動", "description": "拍下你的芋見綠豆飲品，發佈到 Instagram 限時動態" },
-      { "title": "標記我們", "description": "在限動中標記（tag）@merrybeans.tw，系統自動記錄" },
-      { "title": "等待開獎", "description": "每日抽出幸運兒，中獎者可獲得免費飲品一杯！" }
+      {
+        "title": "拍限動",
+        "description": "拍下你的芋見綠豆飲品，發佈到 Instagram 限時動態"
+      },
+      {
+        "title": "標記我們",
+        "description": "在限動中標記（tag）@merrybeans.tw，系統自動記錄"
+      },
+      {
+        "title": "等待開獎",
+        "description": "每日抽出幸運兒，中獎者可獲得免費飲品一杯！"
+      }
     ]
   },
   "gallery": {
     "images": [
-      { "src": "images/products/mung-bean-soup-1.jpg", "alt": "綠豆湯" },
-      { "src": "images/store/staff.jpg", "alt": "門市夥伴" },
-      { "src": "images/products/red-bean-tea-1.jpg", "alt": "紅豆紫米奶茶" },
-      { "src": "images/store/storefront.jpg", "alt": "門市外觀" },
-      { "src": "images/products/red-bean-milk-taro-1.jpg", "alt": "紅豆紫米牛奶" },
-      { "src": "images/hero/group-shot-2.jpg", "alt": "產品合照" },
-      { "src": "images/products/red-bean-green-tea-1.jpg", "alt": "紅豆紫米奶綠" }
+      {
+        "src": "images/products/mung-bean-soup-1.jpg",
+        "alt": "綠豆湯"
+      },
+      {
+        "src": "images/store/staff.jpg",
+        "alt": "門市夥伴"
+      },
+      {
+        "src": "images/products/red-bean-tea-1.jpg",
+        "alt": "紅豆紫米奶茶"
+      },
+      {
+        "src": "images/store/storefront.jpg",
+        "alt": "門市外觀"
+      },
+      {
+        "src": "images/products/red-bean-milk-taro-1.jpg",
+        "alt": "紅豆紫米牛奶"
+      },
+      {
+        "src": "images/hero/group-shot-2.jpg",
+        "alt": "產品合照"
+      },
+      {
+        "src": "images/products/red-bean-green-tea-1.jpg",
+        "alt": "紅豆紫米奶綠"
+      }
     ]
   },
   "footer": {
@@ -239,7 +494,7 @@
     "copyright": "© 2026 芋見綠豆 MERRY BEANS. All rights reserved."
   },
   "seo": {
-    "title": "芋見綠豆 MERRY BEANS — 美好相遇 幸福傳遞",
+    "title": "芋見綠豆 MERRY BEANS | 手工熬煮・屏東手搖飲品牌",
     "description": "芋見綠豆 — 堅持手工熬煮，用最純粹的食材，傳遞每一口幸福。招牌芋泥綠豆湯、紅豆紫米鮮奶，來自屏東的手搖飲品牌。",
     "og_image": "images/hero/group-shot-1.jpg",
     "favicon": "images/logo/logo.jpg"
