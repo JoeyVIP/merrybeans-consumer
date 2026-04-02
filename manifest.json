@@ -1,0 +1,21 @@
+{
+  "name": "芋見綠豆 MERRY BEANS",
+  "short_name": "芋見綠豆",
+  "description": "堅持手工熬煮，用最純粹的食材，傳遞每一口幸福。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF8F0",
+  "theme_color": "#3C6932",
+  "icons": [
+    {
+      "src": "images/logo/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "images/logo/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
