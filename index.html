@@ -34,6 +34,9 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#3C6932">
 
+  <!-- Preload LCP hero image -->
+  <link rel="preload" as="image" href="images/hero/group-shot-1.jpg" fetchpriority="high">
+
   <style>
     :root {
       --brand-green: #3C6932;
@@ -1211,7 +1214,7 @@
         </a>
       </div>
       <div class="hero-image">
-        <img src="images/hero/group-shot-1.jpg" alt="芋見綠豆招牌飲品" class="hero-image-main">
+        <img src="images/hero/group-shot-1.jpg" alt="芋見綠豆招牌飲品" class="hero-image-main" fetchpriority="high">
         <img src="images/products/芋泥綠豆湯.png" alt="芋泥綠豆湯" class="hero-float-product hero-float-1">
         <img src="images/products/紅豆紫米牛奶+小芋圓.png" alt="紅豆紫米牛奶" class="hero-float-product hero-float-2">
       </div>
