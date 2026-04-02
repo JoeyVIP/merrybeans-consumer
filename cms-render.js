@@ -240,6 +240,48 @@
         `).join('');
       }
     }
+
+    // 即時名單：從 ig-raffle-service API 載入（有 api_endpoint 時）
+    if (raffle.api_endpoint) {
+      const listContainer = $('.raffle-list');
+      if (listContainer) {
+        try {
+          const apiBase = raffle.api_endpoint.replace(/\/$/, '');
+          const resp = await fetch(`${apiBase}/api/public/entries?limit=20`);
+          if (resp.ok) {
+            const data = await resp.json();
+            if (data.entries && data.entries.length > 0) {
+              listContainer.innerHTML = data.entries.map(e => {
+                const name = e.displayName || '***';
+                const avatar = name.charAt(0).toUpperCase();
+                const time = e.createdAt
+                  ? new Date(e.createdAt * 1000).toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit', hour12: false })
+                  : '';
+                return `<div class="raffle-entry">
+                  <div class="raffle-entry-user">
+                    <div class="raffle-entry-avatar">${avatar}</div>
+                    <div>
+                      <div class="raffle-entry-name">${name}</div>
+                      <div class="raffle-entry-time">${time}</div>
+                    </div>
+                  </div>
+                  <span class="raffle-entry-status">已參加</span>
+                </div>`;
+              }).join('');
+
+              // 更新總人數
+              const countEl = $('.raffle-count');
+              if (countEl) countEl.textContent = `${data.total} 人參加`;
+            }
+          }
+        } catch {
+          // API 不可用時保留靜態假資料
+        }
+      }
+
+      // 暴露 CMS 資料供外部模組使用
+      window.__CMS_DATA = cmsData;
+    }
   }
 
   // ===== FOOTER =====
