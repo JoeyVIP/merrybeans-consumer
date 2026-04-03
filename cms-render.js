@@ -21,17 +21,17 @@
 
   function setText(sel, val) {
     const el = $(sel);
-    if (el && val != null) el.textContent = val;
+    if (el && val != null && el.textContent !== val) el.textContent = val;
   }
 
   function setHTML(sel, val) {
     const el = $(sel);
-    if (el && val != null) el.innerHTML = val;
+    if (el && val != null && el.innerHTML !== val) el.innerHTML = val;
   }
 
   function setAttr(sel, attr, val) {
     const el = $(sel);
-    if (el && val) el.setAttribute(attr, val);
+    if (el && val && el.getAttribute(attr) !== val) el.setAttribute(attr, val);
   }
 
   // ===== SEO =====
@@ -49,12 +49,14 @@
     if (hero.headline || hero.headline_accent) {
       const h1 = $('.hero-title');
       if (h1) {
-        h1.innerHTML = `${hero.headline || ''}<br><span class="accent">${hero.headline_accent || ''}</span>`;
+        const newHTML = `${hero.headline || ''}<br><span class="accent">${hero.headline_accent || ''}</span>`;
+        if (h1.innerHTML !== newHTML) h1.innerHTML = newHTML;
       }
     }
     if (hero.subtitle) {
       const sub = $('.hero-subtitle');
-      if (sub) sub.innerHTML = hero.subtitle.replace(/\n/g, '<br>');
+      const newSub = hero.subtitle.replace(/\n/g, '<br>');
+      if (sub && sub.innerHTML !== newSub) sub.innerHTML = newSub;
     }
     if (hero.cta_text) setText('.hero-cta', hero.cta_text);
     if (hero.cta_link) setAttr('.hero-cta', 'href', hero.cta_link);
