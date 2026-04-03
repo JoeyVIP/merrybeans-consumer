@@ -1154,8 +1154,9 @@
     }
 
     /* ===== LOADING / REVEAL ===== */
-    .reveal { opacity: 0; transform: translateY(40px); }
-    .reveal.active { opacity: 1; transform: translateY(0); transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+    /* Note: transform applied via GSAP only (not CSS) to avoid CLS */
+    .reveal { opacity: 0; }
+    .reveal.active { opacity: 1; transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
 
     /* Smooth scrollbar */
     ::-webkit-scrollbar { width: 8px; }
