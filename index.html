@@ -60,11 +60,16 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    /* Skip rendering of off-screen sections until scrolled near */
+    .philosophy, .gallery-strip, .products, .menu-section, .story, .store, .raffle-section, .footer {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 600px;
+    }
+
     /* Font fallback while Google Fonts load */
     body { font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 
     html {
-      scroll-behavior: smooth;
       overflow-x: hidden;
     }
 
@@ -243,7 +248,7 @@
     .hero-title {
       font-family: 'Noto Serif TC', serif;
       font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: 900;
+      font-weight: 700;
       line-height: 1.2;
       color: var(--brand-dark);
       margin-bottom: 1.5rem;
@@ -1748,7 +1753,7 @@
         );
       }
 
-      ScrollTrigger.refresh();
+      requestIdleCallback ? requestIdleCallback(() => ScrollTrigger.refresh()) : setTimeout(() => ScrollTrigger.refresh(), 100);
     }
 
     // 初始執行
@@ -1780,12 +1785,12 @@
       y: -50
     });
 
-    // Hero entrance
+    // Hero entrance — no opacity:0 on LCP image to avoid blocking paint
     gsap.from('.hero-badge', { y: 20, opacity: 0, duration: 0.6, delay: 0.2 });
     gsap.from('.hero-title', { y: 30, opacity: 0, duration: 0.8, delay: 0.4 });
     gsap.from('.hero-subtitle', { y: 30, opacity: 0, duration: 0.8, delay: 0.6 });
     gsap.from('.hero-cta', { y: 20, opacity: 0, duration: 0.6, delay: 0.8 });
-    gsap.from('.hero-image-main', { scale: 0.9, opacity: 0, duration: 1, delay: 0.5, ease: 'power3.out' });
+    gsap.from('.hero-image-main', { scale: 0.95, duration: 0.8, delay: 0.3, ease: 'power3.out' });
     gsap.from('.hero-float-1', { x: 40, opacity: 0, duration: 0.8, delay: 0.8 });
     gsap.from('.hero-float-2', { x: -40, opacity: 0, duration: 0.8, delay: 1 });
 
