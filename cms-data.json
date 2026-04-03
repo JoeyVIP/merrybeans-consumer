@@ -5,7 +5,7 @@
     "slogan": "美好相遇 幸福傳遞",
     "slogan_en": "A beautiful encounter, delivering happiness in every sip.",
     "description": "芋見綠豆 — 堅持手工熬煮，用最純粹的食材，傳遞每一口幸福。招牌芋泥綠豆湯、紅豆紫米鮮奶，來自屏東的手搖飲品牌。",
-    "logo": "images/logo/logo.jpg",
+    "logo": "images/logo/logo.webp",
     "origin": "屏東"
   },
   "hero": {
@@ -15,9 +15,9 @@
     "subtitle": "堅持古法手工熬煮，嚴選在地食材。\n從一碗綠豆湯開始，傳遞屬於台灣的幸福滋味。",
     "cta_text": "探索菜單",
     "cta_link": "#menu",
-    "main_image": "images/hero/group-shot-1.jpg",
-    "float_product_1": "images/products/芋泥綠豆湯.png",
-    "float_product_2": "images/products/紅豆紫米牛奶+小芋圓.png"
+    "main_image": "images/hero/group-shot-1.webp",
+    "float_product_1": "images/products/芋泥綠豆湯.webp",
+    "float_product_2": "images/products/紅豆紫米牛奶+小芋圓.webp"
   },
   "signature": {
     "section_label": "SIGNATURE",
@@ -29,42 +29,42 @@
         "description": "手工芋泥遇上慢火熬煮的綠豆，綿密與清爽的完美交融",
         "price": "M $50 ／ L $60",
         "tag": "人氣 No.1",
-        "image": "images/products/芋泥綠豆湯.png"
+        "image": "images/products/芋泥綠豆湯.webp"
       },
       {
         "name": "綠豆湯",
         "description": "古早味手工熬煮，每一口都是阿嬤的味道，清涼消暑首選",
         "price": "M $35 ／ L $45",
         "tag": "經典必喝",
-        "image": "images/products/綠豆湯.png"
+        "image": "images/products/綠豆湯.webp"
       },
       {
         "name": "紅豆紫米鮮奶＋小芋圓",
         "description": "紅豆與紫米的溫潤搭配鮮奶，再加上Q彈小芋圓，幸福滿分",
         "price": "L $70",
         "tag": "療癒系",
-        "image": "images/products/紅豆紫米牛奶+小芋圓.png"
+        "image": "images/products/紅豆紫米牛奶+小芋圓.webp"
       },
       {
         "name": "紅豆紫米奶綠",
         "description": "紅豆紫米搭配清香綠茶奶，層次豐富，回味無窮",
         "price": "L $45",
         "tag": "",
-        "image": "images/products/紅豆紫米綠茶.png"
+        "image": "images/products/紅豆紫米綠茶.webp"
       },
       {
         "name": "綠豆沙牛奶",
         "description": "綿密綠豆沙與香醇鮮奶的絕妙組合，濃郁卻不膩口",
         "price": "M $40 ／ L $50",
         "tag": "",
-        "image": "images/products/綠豆湯牛奶.png"
+        "image": "images/products/綠豆湯牛奶.webp"
       },
       {
         "name": "綠豆薏仁湯",
         "description": "綠豆與薏仁的養生組合，清熱解暑又養顏美容",
         "price": "M $40 ／ L $50",
         "tag": "",
-        "image": "images/products/綠豆薏仁湯.png"
+        "image": "images/products/綠豆薏仁湯.webp"
       }
     ]
   },
@@ -393,8 +393,8 @@
         "text": "「芋見」取自「遇見」的諧音，代表著每一位顧客與我們相遇的美好緣分。我們不只是賣飲料，更是在傳遞一份溫暖的幸福感。"
       }
     ],
-    "main_image": "images/store/storefront.jpg",
-    "accent_image": "images/hero/group-shot-3.jpg",
+    "main_image": "images/store/storefront.webp",
+    "accent_image": "images/hero/group-shot-3.webp",
     "values": [
       {
         "title": "真材實料",
@@ -418,7 +418,7 @@
     "section_label": "VISIT US",
     "section_title": "門市資訊",
     "section_desc": "來店裡坐坐，讓我們為你現場手工調製一杯幸福。",
-    "store_image": "images/store/signage.jpg",
+    "store_image": "images/store/signage.webp",
     "locations": [
       {
         "name": "台南安平店",
@@ -458,31 +458,31 @@
   "gallery": {
     "images": [
       {
-        "src": "images/products/mung-bean-soup-1.jpg",
+        "src": "images/products/mung-bean-soup-1.webp",
         "alt": "綠豆湯"
       },
       {
-        "src": "images/store/staff.jpg",
+        "src": "images/store/staff.webp",
         "alt": "門市夥伴"
       },
       {
-        "src": "images/products/red-bean-tea-1.jpg",
+        "src": "images/products/red-bean-tea-1.webp",
         "alt": "紅豆紫米奶茶"
       },
       {
-        "src": "images/store/storefront.jpg",
+        "src": "images/store/storefront.webp",
         "alt": "門市外觀"
       },
       {
-        "src": "images/products/red-bean-milk-taro-1.jpg",
+        "src": "images/products/red-bean-milk-taro-1.webp",
         "alt": "紅豆紫米牛奶"
       },
       {
-        "src": "images/hero/group-shot-2.jpg",
+        "src": "images/hero/group-shot-2.webp",
         "alt": "產品合照"
       },
       {
-        "src": "images/products/red-bean-green-tea-1.jpg",
+        "src": "images/products/red-bean-green-tea-1.webp",
         "alt": "紅豆紫米奶綠"
       }
     ]
@@ -496,7 +496,7 @@
   "seo": {
     "title": "芋見綠豆 MERRY BEANS | 手工熬煮・屏東手搖飲品牌",
     "description": "芋見綠豆 — 堅持手工熬煮，用最純粹的食材，傳遞每一口幸福。招牌芋泥綠豆湯、紅豆紫米鮮奶，來自屏東的手搖飲品牌。",
-    "og_image": "images/hero/group-shot-1.jpg",
-    "favicon": "images/logo/logo.jpg"
+    "og_image": "images/hero/group-shot-1.webp",
+    "favicon": "images/logo/logo.webp"
   }
 }

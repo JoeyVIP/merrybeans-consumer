@@ -19,25 +19,26 @@
   <meta name="twitter:image" content="https://merrybeans.co/images/hero/group-shot-1.jpg">
   <link rel="canonical" href="https://merrybeans.co/">
 
-  <!-- Fonts -->
+  <!-- Fonts (non-render-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet"></noscript>
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- GSAP (deferred) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <!-- Socket.io: lazy-loaded when raffle section enters viewport -->
 
   <!-- Favicon & Touch Icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32.png">
-  <link rel="icon" type="image/jpeg" href="images/logo/logo.jpg">
+  <link rel="icon" type="image/jpeg" href="images/logo/logo.webp">
   <link rel="apple-touch-icon" sizes="180x180" href="images/logo/apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#3C6932">
 
-  <!-- Preload LCP hero image -->
-  <link rel="preload" as="image" href="images/hero/group-shot-1.jpg" fetchpriority="high">
+  <!-- Preload LCP hero image (WebP) -->
+  <link rel="preload" as="image" href="images/hero/group-shot-1.webp" type="image/webp" fetchpriority="high">
 
   <style>
     :root {
@@ -56,6 +57,9 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Font fallback while Google Fonts load */
+    body { font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 
     html {
       scroll-behavior: smooth;
@@ -1193,7 +1197,7 @@
   <nav class="nav" id="nav" aria-label="主要導覽">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <img src="images/logo/logo.jpg" alt="芋見綠豆">
+        <img src="images/logo/logo.webp" alt="芋見綠豆">
       </a>
       <ul class="nav-links">
         <li><a href="#products">招牌推薦</a></li>
@@ -1242,9 +1246,9 @@
         </a>
       </div>
       <div class="hero-image">
-        <img src="images/hero/group-shot-1.jpg" alt="芋見綠豆招牌飲品" class="hero-image-main" fetchpriority="high">
-        <img src="images/products/芋泥綠豆湯.png" alt="芋泥綠豆湯" class="hero-float-product hero-float-1">
-        <img src="images/products/紅豆紫米牛奶+小芋圓.png" alt="紅豆紫米牛奶" class="hero-float-product hero-float-2">
+        <img src="images/hero/group-shot-1.webp" alt="芋見綠豆招牌飲品" class="hero-image-main" fetchpriority="high" width="600" height="400">
+        <img src="images/products/芋泥綠豆湯.webp" alt="芋泥綠豆湯" class="hero-float-product hero-float-1" width="120" height="160" loading="lazy">
+        <img src="images/products/紅豆紫米牛奶+小芋圓.webp" alt="紅豆紫米牛奶" class="hero-float-product hero-float-2" width="120" height="160" loading="lazy">
       </div>
     </div>
   </section>
@@ -1258,21 +1262,21 @@
   <!-- ===== GALLERY STRIP ===== -->
   <div class="gallery-strip">
     <div class="gallery-track" id="galleryTrack">
-      <img src="images/products/mung-bean-soup-1.jpg" alt="綠豆湯" loading="lazy">
-      <img src="images/store/staff.jpg" alt="門市夥伴" loading="lazy">
-      <img src="images/products/red-bean-tea-1.jpg" alt="紅豆紫米奶茶" loading="lazy">
-      <img src="images/store/storefront.jpg" alt="門市外觀" loading="lazy">
-      <img src="images/products/red-bean-milk-taro-1.jpg" alt="紅豆紫米牛奶" loading="lazy">
-      <img src="images/hero/group-shot-2.jpg" alt="產品合照" loading="lazy">
-      <img src="images/products/red-bean-green-tea-1.jpg" alt="紅豆紫米奶綠" loading="lazy">
+      <img src="images/products/mung-bean-soup-1.webp" alt="綠豆湯" loading="lazy" width="300" height="200">
+      <img src="images/store/staff.webp" alt="門市夥伴" loading="lazy" width="300" height="200">
+      <img src="images/products/red-bean-tea-1.webp" alt="紅豆紫米奶茶" loading="lazy" width="300" height="200">
+      <img src="images/store/storefront.webp" alt="門市外觀" loading="lazy" width="300" height="200">
+      <img src="images/products/red-bean-milk-taro-1.webp" alt="紅豆紫米牛奶" loading="lazy" width="300" height="200">
+      <img src="images/hero/group-shot-2.webp" alt="產品合照" loading="lazy" width="300" height="200">
+      <img src="images/products/red-bean-green-tea-1.webp" alt="紅豆紫米奶綠" loading="lazy" width="300" height="200">
       <!-- Duplicate for seamless loop -->
-      <img src="images/products/mung-bean-soup-1.jpg" alt="綠豆湯" loading="lazy">
-      <img src="images/store/staff.jpg" alt="門市夥伴" loading="lazy">
-      <img src="images/products/red-bean-tea-1.jpg" alt="紅豆紫米奶茶" loading="lazy">
-      <img src="images/store/storefront.jpg" alt="門市外觀" loading="lazy">
-      <img src="images/products/red-bean-milk-taro-1.jpg" alt="紅豆紫米牛奶" loading="lazy">
-      <img src="images/hero/group-shot-2.jpg" alt="產品合照" loading="lazy">
-      <img src="images/products/red-bean-green-tea-1.jpg" alt="紅豆紫米奶綠" loading="lazy">
+      <img src="images/products/mung-bean-soup-1.webp" alt="綠豆湯" loading="lazy" width="300" height="200">
+      <img src="images/store/staff.webp" alt="門市夥伴" loading="lazy" width="300" height="200">
+      <img src="images/products/red-bean-tea-1.webp" alt="紅豆紫米奶茶" loading="lazy" width="300" height="200">
+      <img src="images/store/storefront.webp" alt="門市外觀" loading="lazy" width="300" height="200">
+      <img src="images/products/red-bean-milk-taro-1.webp" alt="紅豆紫米牛奶" loading="lazy" width="300" height="200">
+      <img src="images/hero/group-shot-2.webp" alt="產品合照" loading="lazy" width="300" height="200">
+      <img src="images/products/red-bean-green-tea-1.webp" alt="紅豆紫米奶綠" loading="lazy" width="300" height="200">
     </div>
   </div>
 
@@ -1286,7 +1290,7 @@
       <div class="product-card reveal">
         <span class="product-card-tag">人氣 No.1</span>
         <div class="product-card-image">
-          <img loading="lazy" src="images/products/芋泥綠豆湯.png" alt="芋泥綠豆湯">
+          <img loading="lazy" src="images/products/芋泥綠豆湯.webp" alt="芋泥綠豆湯" width="200" height="260">
         </div>
         <div class="product-card-info">
           <h3 class="product-card-name">芋泥綠豆湯</h3>
@@ -1298,7 +1302,7 @@
       <div class="product-card reveal">
         <span class="product-card-tag">經典必喝</span>
         <div class="product-card-image">
-          <img loading="lazy" src="images/products/綠豆湯.png" alt="綠豆湯">
+          <img loading="lazy" src="images/products/綠豆湯.webp" alt="綠豆湯" width="200" height="260">
         </div>
         <div class="product-card-info">
           <h3 class="product-card-name">綠豆湯</h3>
@@ -1310,7 +1314,7 @@
       <div class="product-card reveal">
         <span class="product-card-tag">療癒系</span>
         <div class="product-card-image">
-          <img loading="lazy" src="images/products/紅豆紫米牛奶+小芋圓.png" alt="紅豆紫米鮮奶+小芋圓">
+          <img loading="lazy" src="images/products/紅豆紫米牛奶+小芋圓.webp" alt="紅豆紫米鮮奶+小芋圓" width="200" height="260">
         </div>
         <div class="product-card-info">
           <h3 class="product-card-name">紅豆紫米鮮奶＋小芋圓</h3>
@@ -1321,7 +1325,7 @@
 
       <div class="product-card reveal">
         <div class="product-card-image">
-          <img loading="lazy" src="images/products/紅豆紫米綠茶.png" alt="紅豆紫米奶綠">
+          <img loading="lazy" src="images/products/紅豆紫米綠茶.webp" alt="紅豆紫米奶綠" width="200" height="260">
         </div>
         <div class="product-card-info">
           <h3 class="product-card-name">紅豆紫米奶綠</h3>
@@ -1332,7 +1336,7 @@
 
       <div class="product-card reveal">
         <div class="product-card-image">
-          <img loading="lazy" src="images/products/綠豆湯牛奶.png" alt="綠豆湯牛奶">
+          <img loading="lazy" src="images/products/綠豆湯牛奶.webp" alt="綠豆湯牛奶" width="200" height="260">
         </div>
         <div class="product-card-info">
           <h3 class="product-card-name">綠豆沙牛奶</h3>
@@ -1343,7 +1347,7 @@
 
       <div class="product-card reveal">
         <div class="product-card-image">
-          <img loading="lazy" src="images/products/綠豆薏仁湯.png" alt="綠豆薏仁湯">
+          <img loading="lazy" src="images/products/綠豆薏仁湯.webp" alt="綠豆薏仁湯" width="200" height="260">
         </div>
         <div class="product-card-info">
           <h3 class="product-card-name">綠豆薏仁湯</h3>
@@ -1449,8 +1453,8 @@
 
       <div class="story-grid">
         <div class="story-images reveal">
-          <img loading="lazy" src="images/store/storefront.jpg" alt="芋見綠豆門市" class="story-img-main">
-          <img loading="lazy" src="images/hero/group-shot-3.jpg" alt="招牌飲品" class="story-img-accent">
+          <img loading="lazy" src="images/store/storefront.webp" alt="芋見綠豆門市" class="story-img-main" width="500" height="350">
+          <img loading="lazy" src="images/hero/group-shot-3.webp" alt="招牌飲品" class="story-img-accent" width="300" height="200">
         </div>
 
         <div class="story-content">
@@ -1516,7 +1520,7 @@
 
     <div class="store-grid">
       <div class="store-image reveal">
-        <img loading="lazy" src="images/store/signage.jpg" alt="芋見綠豆招牌">
+        <img loading="lazy" src="images/store/signage.webp" alt="芋見綠豆招牌" width="400" height="300">
       </div>
 
       <div class="store-info-card reveal">
@@ -1621,7 +1625,7 @@
   <footer class="footer" aria-label="頁尾">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="images/logo/logo.jpg" alt="芋見綠豆">
+        <img src="images/logo/logo.webp" alt="芋見綠豆">
         <p>堅持手工熬煮，嚴選在地食材。<br>從一碗綠豆湯開始，傳遞屬於台灣的幸福滋味。</p>
       </div>
       <div class="footer-col">
@@ -1695,7 +1699,8 @@
       });
     });
 
-    // ===== GSAP ANIMATIONS =====
+    // ===== GSAP ANIMATIONS (wait for deferred scripts) =====
+    function initGSAP() {
     gsap.registerPlugin(ScrollTrigger);
 
     function initRevealAnimations(isRefresh) {
@@ -1809,6 +1814,11 @@
       duration: 0.6,
       ease: 'power3.out'
     });
+
+    } // end initGSAP
+    // Run GSAP init when deferred scripts are ready
+    if (typeof gsap !== 'undefined') { initGSAP(); }
+    else { document.addEventListener('DOMContentLoaded', initGSAP); }
 
     // ===== IG RAFFLE LIVE INTEGRATION =====
     (function() {
