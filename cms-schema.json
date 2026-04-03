@@ -130,7 +130,7 @@
             { "key": "instagram", "label": "Instagram 帳號", "type": "text" }
           ]
         },
-        { "key": "franchise_url", "label": "加盟資訊連結", "type": "url", "default": "https://franchise.merrybeans.co" },
+        { "key": "franchise_url", "label": "加盟資訊連結", "type": "url", "default": "tel:08-7220868" },
         { "key": "franchise_text", "label": "加盟說明文字", "type": "text", "default": "有興趣加入芋見綠豆？" }
       ]
     },
