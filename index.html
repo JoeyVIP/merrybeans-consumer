@@ -110,11 +110,13 @@
     }
 
     .nav-logo img {
+      width: 48px;
       height: 42px;
-      transition: height 0.4s;
+      transition: transform 0.4s;
+      transform-origin: left center;
     }
 
-    .nav.scrolled .nav-logo img { height: 34px; }
+    .nav.scrolled .nav-logo img { transform: scale(0.81); }
 
     .nav-links {
       display: flex;
@@ -1196,7 +1198,7 @@
   <nav class="nav" id="nav" aria-label="主要導覽">
     <div class="nav-inner">
       <a href="#" class="nav-logo">
-        <img src="images/logo/logo.webp" alt="芋見綠豆">
+        <img src="images/logo/logo.webp" alt="芋見綠豆" width="48" height="42">
       </a>
       <ul class="nav-links">
         <li><a href="#products">招牌推薦</a></li>
@@ -1604,7 +1606,7 @@
           <span class="raffle-live-badge"><span class="raffle-live-dot"></span>即時更新</span>
         </div>
 
-        <div id="raffleList">
+        <div id="raffleList" style="min-height:200px;">
           <div id="raffleLoading" style="text-align:center;padding:2rem;opacity:0.6;">
             載入參與名單中...
           </div>
@@ -1624,7 +1626,7 @@
   <footer class="footer" aria-label="頁尾">
     <div class="footer-inner">
       <div class="footer-brand">
-        <img src="images/logo/logo.webp" alt="芋見綠豆">
+        <img src="images/logo/logo.webp" alt="芋見綠豆" width="48" height="42">
         <p>堅持手工熬煮，嚴選在地食材。<br>從一碗綠豆湯開始，傳遞屬於台灣的幸福滋味。</p>
       </div>
       <div class="footer-col">
