@@ -116,7 +116,7 @@
       "fields": [
         { "key": "section_label", "label": "區塊英文標籤", "type": "text", "default": "VISIT US" },
         { "key": "section_title", "label": "區塊標題", "type": "text", "default": "門市資訊" },
-        { "key": "section_desc", "label": "區塊描述", "type": "textarea", "default": "來店裡坐坐，讓我們為你現場手工調製一杯幸福。" },
+        { "key": "section_desc", "label": "區塊描述", "type": "textarea", "default": "歡迎蒞臨，讓我們為你現場手工調製一杯幸福。" },
         { "key": "store_image", "label": "門市照片", "type": "image" },
         {
           "key": "locations",
@@ -130,7 +130,7 @@
             { "key": "instagram", "label": "Instagram 帳號", "type": "text" }
           ]
         },
-        { "key": "franchise_url", "label": "加盟資訊連結", "type": "url", "default": "tel:08-7220868" },
+        { "key": "franchise_url", "label": "加盟資訊連結", "type": "url", "default": "https://franchise.merrybeans.co" },
         { "key": "franchise_text", "label": "加盟說明文字", "type": "text", "default": "有興趣加入芋見綠豆？" }
       ]
     },
