@@ -1785,11 +1785,11 @@
       y: -50
     });
 
-    // Hero entrance — no opacity:0 on LCP image to avoid blocking paint
-    gsap.from('.hero-badge', { y: 20, opacity: 0, duration: 0.6, delay: 0.2 });
-    gsap.from('.hero-title', { y: 30, opacity: 0, duration: 0.8, delay: 0.4 });
-    gsap.from('.hero-subtitle', { y: 30, opacity: 0, duration: 0.8, delay: 0.6 });
-    gsap.from('.hero-cta', { y: 20, opacity: 0, duration: 0.6, delay: 0.8 });
+    // Hero entrance — no opacity:0 on above-fold elements to avoid blocking LCP
+    gsap.from('.hero-badge', { y: 20, duration: 0.6, delay: 0.2 });
+    gsap.from('.hero-title', { y: 30, duration: 0.8, delay: 0.4 });
+    gsap.from('.hero-subtitle', { y: 30, duration: 0.8, delay: 0.6 });
+    gsap.from('.hero-cta', { y: 20, duration: 0.6, delay: 0.8 });
     gsap.from('.hero-image-main', { scale: 0.95, duration: 0.8, delay: 0.3, ease: 'power3.out' });
     gsap.from('.hero-float-1', { x: 40, opacity: 0, duration: 0.8, delay: 0.8 });
     gsap.from('.hero-float-2', { x: -40, opacity: 0, duration: 0.8, delay: 1 });
