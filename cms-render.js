@@ -297,9 +297,9 @@
     const track = $('#galleryTrack');
     if (track) {
       const imgs = cmsData.gallery.images;
-      // 渲染兩組（無縫循環）
+      // 渲染兩組（無縫循環），含 width/height 防止 CLS
       const html = imgs.map(img =>
-        `<img src="${img.src}" alt="${img.alt || ''}" loading="lazy">`
+        `<img src="${img.src}" alt="${img.alt || ''}" loading="lazy" width="300" height="200">`
       ).join('');
       track.innerHTML = html + html;
     }

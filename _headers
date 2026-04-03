@@ -1,0 +1,21 @@
+# Cloudflare Pages custom headers
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/cms-data.json
+  Cache-Control: public, max-age=3600
+
+/cms-render.js
+  Cache-Control: public, max-age=86400
+
+/manifest.json
+  Cache-Control: public, max-age=86400
+
+/
+  Cache-Control: public, max-age=3600
+  X-Content-Type-Options: nosniff

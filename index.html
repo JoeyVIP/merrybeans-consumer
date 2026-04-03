@@ -19,10 +19,12 @@
   <meta name="twitter:image" content="https://merrybeans.co/images/hero/group-shot-1.jpg">
   <link rel="canonical" href="https://merrybeans.co/">
 
-  <!-- Fonts -->
+  <!-- Fonts (non-render-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- GSAP (deferred) -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -1249,7 +1251,7 @@
         </a>
       </div>
       <div class="hero-image">
-        <img src="images/hero/group-shot-1.webp" alt="芋見綠豆招牌飲品" class="hero-image-main" fetchpriority="high" width="600" height="400">
+        <img src="images/hero/group-shot-1.webp" alt="芋見綠豆招牌飲品" class="hero-image-main" fetchpriority="high" width="800" height="1200">
         <img src="images/products/芋泥綠豆湯.webp" alt="芋泥綠豆湯" class="hero-float-product hero-float-1" width="120" height="160" loading="lazy">
         <img src="images/products/紅豆紫米牛奶+小芋圓.webp" alt="紅豆紫米牛奶" class="hero-float-product hero-float-2" width="120" height="160" loading="lazy">
       </div>
@@ -1272,16 +1274,12 @@
       <img src="images/products/red-bean-milk-taro-1.webp" alt="紅豆紫米牛奶" loading="lazy" width="300" height="200">
       <img src="images/hero/group-shot-2.webp" alt="產品合照" loading="lazy" width="300" height="200">
       <img src="images/products/red-bean-green-tea-1.webp" alt="紅豆紫米奶綠" loading="lazy" width="300" height="200">
-      <!-- Duplicate for seamless loop -->
-      <img src="images/products/mung-bean-soup-1.webp" alt="綠豆湯" loading="lazy" width="300" height="200">
-      <img src="images/store/staff.webp" alt="門市夥伴" loading="lazy" width="300" height="200">
-      <img src="images/products/red-bean-tea-1.webp" alt="紅豆紫米奶茶" loading="lazy" width="300" height="200">
-      <img src="images/store/storefront.webp" alt="門市外觀" loading="lazy" width="300" height="200">
-      <img src="images/products/red-bean-milk-taro-1.webp" alt="紅豆紫米牛奶" loading="lazy" width="300" height="200">
-      <img src="images/hero/group-shot-2.webp" alt="產品合照" loading="lazy" width="300" height="200">
-      <img src="images/products/red-bean-green-tea-1.webp" alt="紅豆紫米奶綠" loading="lazy" width="300" height="200">
     </div>
   </div>
+  <script>
+  // Duplicate gallery images via JS for seamless infinite scroll (saves 7 img requests on initial load)
+  requestAnimationFrame(function(){var t=document.getElementById('galleryTrack');if(t)t.innerHTML+=t.innerHTML;});
+  </script>
 
   <!-- ===== SIGNATURE PRODUCTS ===== -->
   <section class="section" id="products">
@@ -1657,7 +1655,7 @@
   </footer>
 
   <!-- CMS Render Engine — 從 cms-data.json 動態渲染 -->
-  <script src="cms-render.js"></script>
+  <script defer src="cms-render.js"></script>
 
   <script>
     // ===== NAVIGATION =====
