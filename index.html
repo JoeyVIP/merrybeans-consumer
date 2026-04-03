@@ -21,11 +21,10 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@300;500;700&display=swap" rel="stylesheet"></noscript>
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- GSAP: loaded at body bottom to not block rendering -->
   <!-- Socket.io: lazy-loaded when raffle section enters viewport -->
 
   <!-- Favicon & Touch Icons -->
@@ -36,7 +35,7 @@
   <meta name="theme-color" content="#3C6932">
 
   <!-- Preload LCP hero image -->
-  <link rel="preload" as="image" href="images/hero/group-shot-1.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="images/hero/group-shot-1.webp" type="image/webp" fetchpriority="high">
 
   <style>
     :root {
@@ -1223,7 +1222,7 @@
         </a>
       </div>
       <div class="hero-image">
-        <img src="images/hero/group-shot-1.jpg" alt="芋見綠豆招牌飲品" class="hero-image-main" fetchpriority="high">
+        <picture><source srcset="images/hero/group-shot-1.webp" type="image/webp"><picture><source srcset="images/hero/group-shot-1.webp" type="image/webp"><img src="images/hero/group-shot-1.jpg" alt="芋見綠豆招牌飲品" class="hero-image-main" fetchpriority="high" width="1200" height="800"></picture></picture>
         <img src="images/products/芋泥綠豆湯.png" alt="芋泥綠豆湯" class="hero-float-product hero-float-1">
         <img src="images/products/紅豆紫米牛奶+小芋圓.png" alt="紅豆紫米牛奶" class="hero-float-product hero-float-2">
       </div>
@@ -1239,21 +1238,21 @@
   <!-- ===== GALLERY STRIP ===== -->
   <div class="gallery-strip">
     <div class="gallery-track" id="galleryTrack">
-      <img src="images/products/mung-bean-soup-1.jpg" alt="綠豆湯" loading="lazy">
-      <img src="images/store/staff.jpg" alt="門市夥伴" loading="lazy">
-      <img src="images/products/red-bean-tea-1.jpg" alt="紅豆紫米奶茶" loading="lazy">
-      <img src="images/store/storefront.jpg" alt="門市外觀" loading="lazy">
-      <img src="images/products/red-bean-milk-taro-1.jpg" alt="紅豆紫米牛奶" loading="lazy">
-      <img src="images/hero/group-shot-2.jpg" alt="產品合照" loading="lazy">
-      <img src="images/products/red-bean-green-tea-1.jpg" alt="紅豆紫米奶綠" loading="lazy">
+      <picture><source srcset="images/products/mung-bean-soup-1.webp" type="image/webp"><img src="images/products/mung-bean-soup-1.jpg" alt="綠豆湯" loading="lazy"></picture>
+      <picture><source srcset="images/store/staff.webp" type="image/webp"><img src="images/store/staff.jpg" alt="門市夥伴" loading="lazy"></picture>
+      <picture><source srcset="images/products/red-bean-tea-1.webp" type="image/webp"><img src="images/products/red-bean-tea-1.jpg" alt="紅豆紫米奶茶" loading="lazy"></picture>
+      <picture><source srcset="images/store/storefront.webp" type="image/webp"><img src="images/store/storefront.jpg" alt="門市外觀" loading="lazy"></picture>
+      <picture><source srcset="images/products/red-bean-milk-taro-1.webp" type="image/webp"><img src="images/products/red-bean-milk-taro-1.jpg" alt="紅豆紫米牛奶" loading="lazy"></picture>
+      <picture><source srcset="images/hero/group-shot-2.webp" type="image/webp"><img src="images/hero/group-shot-2.jpg" alt="產品合照" loading="lazy"></picture>
+      <picture><source srcset="images/products/red-bean-green-tea-1.webp" type="image/webp"><img src="images/products/red-bean-green-tea-1.jpg" alt="紅豆紫米奶綠" loading="lazy"></picture>
       <!-- Duplicate for seamless loop -->
-      <img src="images/products/mung-bean-soup-1.jpg" alt="綠豆湯" loading="lazy">
-      <img src="images/store/staff.jpg" alt="門市夥伴" loading="lazy">
-      <img src="images/products/red-bean-tea-1.jpg" alt="紅豆紫米奶茶" loading="lazy">
-      <img src="images/store/storefront.jpg" alt="門市外觀" loading="lazy">
-      <img src="images/products/red-bean-milk-taro-1.jpg" alt="紅豆紫米牛奶" loading="lazy">
-      <img src="images/hero/group-shot-2.jpg" alt="產品合照" loading="lazy">
-      <img src="images/products/red-bean-green-tea-1.jpg" alt="紅豆紫米奶綠" loading="lazy">
+      <picture><source srcset="images/products/mung-bean-soup-1.webp" type="image/webp"><img src="images/products/mung-bean-soup-1.jpg" alt="綠豆湯" loading="lazy"></picture>
+      <picture><source srcset="images/store/staff.webp" type="image/webp"><img src="images/store/staff.jpg" alt="門市夥伴" loading="lazy"></picture>
+      <picture><source srcset="images/products/red-bean-tea-1.webp" type="image/webp"><img src="images/products/red-bean-tea-1.jpg" alt="紅豆紫米奶茶" loading="lazy"></picture>
+      <picture><source srcset="images/store/storefront.webp" type="image/webp"><img src="images/store/storefront.jpg" alt="門市外觀" loading="lazy"></picture>
+      <picture><source srcset="images/products/red-bean-milk-taro-1.webp" type="image/webp"><img src="images/products/red-bean-milk-taro-1.jpg" alt="紅豆紫米牛奶" loading="lazy"></picture>
+      <picture><source srcset="images/hero/group-shot-2.webp" type="image/webp"><img src="images/hero/group-shot-2.jpg" alt="產品合照" loading="lazy"></picture>
+      <picture><source srcset="images/products/red-bean-green-tea-1.webp" type="image/webp"><img src="images/products/red-bean-green-tea-1.jpg" alt="紅豆紫米奶綠" loading="lazy"></picture>
     </div>
   </div>
 
@@ -1430,8 +1429,8 @@
 
       <div class="story-grid">
         <div class="story-images reveal">
-          <img loading="lazy" src="images/store/storefront.jpg" alt="芋見綠豆門市" class="story-img-main">
-          <img loading="lazy" src="images/hero/group-shot-3.jpg" alt="招牌飲品" class="story-img-accent">
+          <picture><source srcset="images/store/storefront.webp" type="image/webp"><img loading="lazy" src="images/store/storefront.jpg" alt="芋見綠豆門市" class="story-img-main"></picture>
+          <picture><source srcset="images/hero/group-shot-3.webp" type="image/webp"><img loading="lazy" src="images/hero/group-shot-3.jpg" alt="招牌飲品" class="story-img-accent"></picture>
         </div>
 
         <div class="story-content">
@@ -1497,7 +1496,7 @@
 
     <div class="store-grid">
       <div class="store-image reveal">
-        <img loading="lazy" src="images/store/signage.jpg" alt="芋見綠豆招牌">
+        <picture><source srcset="images/store/signage.webp" type="image/webp"><img loading="lazy" src="images/store/signage.jpg" alt="芋見綠豆招牌"></picture>
       </div>
 
       <div class="store-info-card reveal">
@@ -1632,6 +1631,8 @@
   </footer>
 
   <!-- CMS Render Engine — 從 cms-data.json 動態渲染 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="cms-render.js"></script>
 
   <script>
