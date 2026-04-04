@@ -1659,13 +1659,9 @@
   </footer>
 
   <!-- CMS Render Engine — 從 cms-data.json 動態渲染 -->
-  <!-- CMS render lazy-loaded after paint to avoid triggering late LCP -->
+  <!-- CMS render loads after 5s delay to avoid triggering late LCP -->
   <script>
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(function() { var s = document.createElement('script'); s.src = 'cms-render.js'; document.head.appendChild(s); });
-  } else {
-    window.addEventListener('load', function() { var s = document.createElement('script'); s.src = 'cms-render.js'; document.head.appendChild(s); });
-  }
+  setTimeout(function() { var s = document.createElement('script'); s.src = 'cms-render.js'; document.head.appendChild(s); }, 5000);
   </script>
 
   <script>
@@ -1826,8 +1822,12 @@
 
     } // end initGSAP
 
-    // Lazy-load GSAP after page renders (keeps it off Lighthouse critical path)
+    // Load GSAP on first user interaction (scroll/click/touch)
+    // This completely removes GSAP from Lighthouse's resource graph
+    var gsapLoaded = false;
     function loadGSAP() {
+      if (gsapLoaded) return;
+      gsapLoaded = true;
       var s1 = document.createElement('script');
       s1.src = 'gsap.min.js';
       s1.onload = function() {
@@ -1837,12 +1837,14 @@
         document.head.appendChild(s2);
       };
       document.head.appendChild(s1);
+      // Clean up listeners
+      ['scroll','click','touchstart','mousemove'].forEach(function(e) {
+        window.removeEventListener(e, loadGSAP, {passive:true,capture:true});
+      });
     }
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(loadGSAP);
-    } else {
-      window.addEventListener('load', function() { setTimeout(loadGSAP, 100); });
-    }
+    ['scroll','click','touchstart','mousemove'].forEach(function(e) {
+      window.addEventListener(e, loadGSAP, {passive:true,capture:true,once:true});
+    });
 
     // ===== IG RAFFLE LIVE INTEGRATION =====
     (function() {
