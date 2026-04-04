@@ -23,13 +23,13 @@
   <!-- Fonts (non-render-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <!-- cdnjs preconnect removed — GSAP now self-hosted -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@400;700&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@400;700&display=optional" rel="stylesheet"></noscript>
 
-  <!-- GSAP (deferred) -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- GSAP (self-hosted, deferred — eliminates CDN cross-origin latency under throttling) -->
+  <script defer src="gsap.min.js"></script>
+  <script defer src="ScrollTrigger.min.js"></script>
   <!-- Socket.io: lazy-loaded when raffle section enters viewport -->
 
   <!-- Favicon & Touch Icons -->

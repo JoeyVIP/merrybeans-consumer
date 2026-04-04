@@ -21,12 +21,12 @@
 
   function setText(sel, val) {
     const el = $(sel);
-    if (el && val != null) el.textContent = val;
+    if (el && val != null && el.textContent !== val) el.textContent = val;
   }
 
   function setHTML(sel, val) {
     const el = $(sel);
-    if (el && val != null) el.innerHTML = val;
+    if (el && val != null && el.innerHTML !== val) el.innerHTML = val;
   }
 
   function setAttr(sel, attr, val) {
