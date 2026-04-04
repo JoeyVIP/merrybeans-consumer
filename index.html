@@ -27,9 +27,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@400;700&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700&family=Noto+Sans+TC:wght@400;700&display=optional" rel="stylesheet"></noscript>
 
-  <!-- GSAP (self-hosted, deferred — eliminates CDN cross-origin latency under throttling) -->
-  <script defer src="gsap.min.js"></script>
-  <script defer src="ScrollTrigger.min.js"></script>
+  <!-- GSAP lazy-loaded after LCP to avoid blocking TTI and triggering late LCP events -->
   <!-- Socket.io: lazy-loaded when raffle section enters viewport -->
 
   <!-- Favicon & Touch Icons -->
@@ -1661,7 +1659,14 @@
   </footer>
 
   <!-- CMS Render Engine — 從 cms-data.json 動態渲染 -->
-  <script defer src="cms-render.js"></script>
+  <!-- CMS render lazy-loaded after paint to avoid triggering late LCP -->
+  <script>
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(function() { var s = document.createElement('script'); s.src = 'cms-render.js'; document.head.appendChild(s); });
+  } else {
+    window.addEventListener('load', function() { var s = document.createElement('script'); s.src = 'cms-render.js'; document.head.appendChild(s); });
+  }
+  </script>
 
   <script>
     // ===== NAVIGATION =====
@@ -1820,9 +1825,24 @@
     });
 
     } // end initGSAP
-    // Run GSAP init when deferred scripts are ready
-    if (typeof gsap !== 'undefined') { initGSAP(); }
-    else { document.addEventListener('DOMContentLoaded', initGSAP); }
+
+    // Lazy-load GSAP after page renders (keeps it off Lighthouse critical path)
+    function loadGSAP() {
+      var s1 = document.createElement('script');
+      s1.src = 'gsap.min.js';
+      s1.onload = function() {
+        var s2 = document.createElement('script');
+        s2.src = 'ScrollTrigger.min.js';
+        s2.onload = initGSAP;
+        document.head.appendChild(s2);
+      };
+      document.head.appendChild(s1);
+    }
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(loadGSAP);
+    } else {
+      window.addEventListener('load', function() { setTimeout(loadGSAP, 100); });
+    }
 
     // ===== IG RAFFLE LIVE INTEGRATION =====
     (function() {
