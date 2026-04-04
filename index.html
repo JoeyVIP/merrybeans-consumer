@@ -346,7 +346,7 @@
   </style>
 
   <!-- Deferred non-critical CSS (below-the-fold sections) -->
-  <link rel="preload" as="style" href="styles-deferred.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="styles-deferred.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="styles-deferred.css"></noscript>
   <script type="application/ld+json">
   {
