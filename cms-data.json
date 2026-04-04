@@ -22,7 +22,7 @@
   "signature": {
     "section_label": "SIGNATURE",
     "section_title": "招牌推薦",
-    "section_desc": "綠豆、芋頭、花生的幸福三重奏 — 多層次的滋味在口中交織碰撞，又沙又綿密的味蕾體驗。",
+    "section_desc": "每一杯都是職人的堅持，從食材挑選到手工熬煮，只為呈現最純粹的美味。",
     "items": [
       {
         "name": "招牌綠豆沙",
@@ -65,38 +65,6 @@
         "price": "M $25 起",
         "tag": "",
         "image": "images/franchise-products/oolong-tea.webp"
-      }
-    ],
-    "series": [
-      {
-        "name": "綠豆沙系列",
-        "subtitle": "古早味 × 沙綿口感",
-        "tag": "招牌必點",
-        "image": "images/franchise-products/綠豆沙系列.webp"
-      },
-      {
-        "name": "芋頭系列",
-        "subtitle": "大甲芋頭 × 香濃鮮奶",
-        "tag": "招牌推薦",
-        "image": "images/franchise-products/taro-collection.webp"
-      },
-      {
-        "name": "花生系列",
-        "subtitle": "香濃花生 × 綿密滑順",
-        "tag": "經典風味",
-        "image": "images/franchise-products/花生系列.webp"
-      },
-      {
-        "name": "草莓系列",
-        "subtitle": "鮮果滿溢 × 酸甜爽口",
-        "tag": "季節限定",
-        "image": "images/franchise-products/strawberry-collection.webp"
-      },
-      {
-        "name": "茶飲系列",
-        "subtitle": "嚴選茶葉 × 清香回甘",
-        "tag": "職人手沖",
-        "image": "images/franchise-products/tea-collection.webp"
       }
     ]
   },
