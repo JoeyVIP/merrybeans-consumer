@@ -22,49 +22,81 @@
   "signature": {
     "section_label": "SIGNATURE",
     "section_title": "招牌推薦",
-    "section_desc": "每一杯都是職人的堅持，從食材挑選到手工熬煮，只為呈現最純粹的美味。",
+    "section_desc": "綠豆、芋頭、花生的幸福三重奏 — 多層次的滋味在口中交織碰撞，又沙又綿密的味蕾體驗。",
     "items": [
       {
-        "name": "芋泥綠豆湯",
-        "description": "手工芋泥遇上慢火熬煮的綠豆，綿密與清爽的完美交融",
-        "price": "M $50 ／ L $60",
+        "name": "招牌綠豆沙",
+        "description": "古早味綠豆沙，沙綿口感清涼解渴，招牌乳牛紋視覺超吸睛",
+        "price": "M $40 ／ L $50",
+        "tag": "招牌必點",
+        "image": "images/franchise-products/招牌綠豆沙產品圖.webp"
+      },
+      {
+        "name": "芋頭牛奶",
+        "description": "滿滿大甲芋泥搭配香醇鮮奶，濃郁芋香一喝就愛上",
+        "price": "M $55 ／ L $65",
         "tag": "人氣 No.1",
-        "image": "images/products/芋泥綠豆湯.webp"
+        "image": "images/franchise-products/taro-milk.webp"
       },
       {
-        "name": "綠豆湯",
-        "description": "古早味手工熬煮，每一口都是阿嬤的味道，清涼消暑首選",
-        "price": "M $35 ／ L $45",
-        "tag": "經典必喝",
-        "image": "images/products/綠豆湯.webp"
+        "name": "花生牛奶",
+        "description": "香濃花生與鮮奶的經典組合，綿密滑順回味無窮",
+        "price": "M $55 ／ L $65",
+        "tag": "經典風味",
+        "image": "images/franchise-products/花生牛奶產品圖.webp"
       },
       {
-        "name": "紅豆紫米鮮奶＋小芋圓",
-        "description": "紅豆與紫米的溫潤搭配鮮奶，再加上Q彈小芋圓，幸福滿分",
-        "price": "L $70",
-        "tag": "療癒系",
-        "image": "images/products/紅豆紫米牛奶+小芋圓.webp"
-      },
-      {
-        "name": "紅豆紫米奶綠",
-        "description": "紅豆紫米搭配清香綠茶奶，層次豐富，回味無窮",
-        "price": "L $45",
+        "name": "大甲芋頭西米露",
+        "description": "綿密芋泥搭配Q彈西米露，層次豐富口感滿分",
+        "price": "M $70 ／ L $80",
         "tag": "",
-        "image": "images/products/紅豆紫米綠茶.webp"
+        "image": "images/franchise-products/taro-sago.webp"
       },
       {
-        "name": "綠豆沙牛奶",
-        "description": "綿密綠豆沙與香醇鮮奶的絕妙組合，濃郁卻不膩口",
-        "price": "M $40 ／ L $50",
-        "tag": "",
-        "image": "images/products/綠豆湯牛奶.webp"
+        "name": "草莓冰沙",
+        "description": "鮮果滿溢，酸甜爽口，季節限定的幸福滋味",
+        "price": "依季節定價",
+        "tag": "季節限定",
+        "image": "images/franchise-products/strawberry-slush.webp"
       },
       {
-        "name": "綠豆薏仁湯",
-        "description": "綠豆與薏仁的養生組合，清熱解暑又養顏美容",
-        "price": "M $40 ／ L $50",
+        "name": "職人好茶",
+        "description": "嚴選台灣茶葉，清香回甘，比賽等級的品茗享受",
+        "price": "M $25 起",
         "tag": "",
-        "image": "images/products/綠豆薏仁湯.webp"
+        "image": "images/franchise-products/oolong-tea.webp"
+      }
+    ],
+    "series": [
+      {
+        "name": "綠豆沙系列",
+        "subtitle": "古早味 × 沙綿口感",
+        "tag": "招牌必點",
+        "image": "images/franchise-products/綠豆沙系列.webp"
+      },
+      {
+        "name": "芋頭系列",
+        "subtitle": "大甲芋頭 × 香濃鮮奶",
+        "tag": "招牌推薦",
+        "image": "images/franchise-products/taro-collection.webp"
+      },
+      {
+        "name": "花生系列",
+        "subtitle": "香濃花生 × 綿密滑順",
+        "tag": "經典風味",
+        "image": "images/franchise-products/花生系列.webp"
+      },
+      {
+        "name": "草莓系列",
+        "subtitle": "鮮果滿溢 × 酸甜爽口",
+        "tag": "季節限定",
+        "image": "images/franchise-products/strawberry-collection.webp"
+      },
+      {
+        "name": "茶飲系列",
+        "subtitle": "嚴選茶葉 × 清香回甘",
+        "tag": "職人手沖",
+        "image": "images/franchise-products/tea-collection.webp"
       }
     ]
   },
