@@ -31,7 +31,7 @@
 
   function setAttr(sel, attr, val) {
     const el = $(sel);
-    if (el && val) el.setAttribute(attr, val);
+    if (el && val && el.getAttribute(attr) !== val) el.setAttribute(attr, val);
   }
 
   // ===== SEO =====
